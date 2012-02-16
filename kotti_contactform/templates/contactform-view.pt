@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      metal:use-macro="api.macro('kotti:templates/view/master.pt')">
+
+  <head tal:omit-tag="" metal:fill-slot="head-more">
+<!--    <link rel="stylesheet" href="${request.static_url('kotti_contactform:static/style.css')}" type="text/css" /> -->
+    <more tal:omit-tag="" metal:define-slot="head"></more>
+  </head>
+
+  <article metal:fill-slot="content" class="contactform-view content">
+    <h1>${api.context.title}</h1>
+    <p class="description">
+      ${api.context.description}
+    </p>
+    <div class="row">
+      <div class="span4">
+	Contact
+      </div>
+      <div class="span4">
+	<form method="POST" action="${request.url}" class="well">
+	  <label for="email">Ihre E-Mail Adresse:</label>
+	  <input id="email" name="email" type="text" />
+	  <label for="subject">Betreff:</label>
+	  <input id="subject" name="subjectl" type="text" />
+	  <label for="message">Nachricht:</label>
+	  <textarea id="message" name="message"></textarea>
+	  <br />
+	  <button class="btn" name="send-contactform">Senden</button>
+      </form>
+      </div>
+    </div>
+  </article>
+</html>
