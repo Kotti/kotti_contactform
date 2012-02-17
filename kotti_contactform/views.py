@@ -1,4 +1,8 @@
 import colander
+from pyramid_mailer import get_mailer
+from pyramid_mailer.message import Message
+from deform import Form
+from deform import ValidationFailure
 from kotti.views.edit import ContentSchema
 from kotti.views.edit import generic_edit
 from kotti.views.edit import generic_add
@@ -17,8 +21,36 @@ def edit_contactform(context, request):
 def add_contactform(context, request):
     return generic_add(context, request, ContactFormSchema(), ContactForm, u'contactform')
 
+
+class SubmissionSchema(colander.MappingSchema):
+    sender = colander.SchemaNode(colander.String(), validator=colander.Email())
+    subject = colander.SchemaNode(colander.String())
+    content = colander.SchemaNode(colander.String())
+
+def mail_submission(context, request, appstruct):
+    mailer = get_mailer(request)
+    message = Message(subject=appstruct.subject,
+                      sender=appstruct.sender,
+                      recipients=[context.recipient],
+                      body=appstruct.content)
+    mailer.send(message)
+
 def view_contactform(context, request):
+    schema = SubmissionSchema()
+    form = Form(schema, buttons=('submit',))
+    appstruct = None
+    rendered_form = None
+    if 'submit' in request.POST:
+        controls = request.POST.items()
+        try:
+            appstruct = form.validate(controls)
+        except ValidationFailure, e:
+            rendered_form = e.render()
+    else:
+        rendered_form = form.render()
     return {
+        'form': rendered_form,
+        'appstruct': appstruct,
         'api': template_api(context, request),
         }
 
@@ -47,7 +79,9 @@ def includeme_view(config):
         renderer='templates/contactform-view.pt',
         )
     config.add_static_view('static-kotti_contactform', 'kotti_contactform:static')
+#   config.add_static_view('static', 'deform:static')
 
 def includeme(config):
+    config.include('pyramid_mailer')
     includeme_edit(config)
     includeme_view(config)

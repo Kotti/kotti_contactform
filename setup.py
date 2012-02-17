@@ -27,6 +27,7 @@ This is an extension to Kotti that allows to add simple contact forms to your we
       zip_safe=False,
       install_requires=[
         'Kotti',
+        'pyramid_mailer',
       ],
       entry_points="""
       # -*- Entry points: -*-
