@@ -16,9 +16,9 @@ To enable the extension in your Kotti site, activate the configurator:
 
   kotti.configurators = kotti_contactform.kotti_configure
 
-``kotti_contactform`` uses pyramid_mailer for sending mails and tries
-to use your mailserver at localhost:25. If these defaults don't fit
-your needs, you have to configure ``pyramid_mailer``:
+``kotti_contactform`` uses ``pyramid_mailer`` for sending mails and
+tries to use your mailserver at localhost:25. If these defaults don't
+fit your needs, you have to configure ``pyramid_mailer``:
 http://packages.python.org/pyramid_mailer/
 
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
