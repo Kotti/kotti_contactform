@@ -29,10 +29,10 @@ class SubmissionSchema(colander.MappingSchema):
 
 def mail_submission(context, request, appstruct):
     mailer = get_mailer(request)
-    message = Message(subject=appstruct.subject,
-                      sender=appstruct.sender,
+    message = Message(subject=appstruct['subject'],
+                      sender=appstruct['sender'],
                       recipients=[context.recipient],
-                      body=appstruct.content)
+                      body=appstruct['content'])
     mailer.send(message)
 
 def view_contactform(context, request):
@@ -44,7 +44,9 @@ def view_contactform(context, request):
         controls = request.POST.items()
         try:
             appstruct = form.validate(controls)
+            mail_submission(context, request, appstruct)
         except ValidationFailure, e:
+            appstruct = None
             rendered_form = e.render()
     else:
         rendered_form = form.render()
