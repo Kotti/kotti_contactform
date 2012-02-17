@@ -16,7 +16,7 @@
     </p>
     <div class="row">
       <div class="span4">
-	Contact
+	${structure: api.context.body}
       </div>
       <div class="span4">
 	<div tal:condition="form">

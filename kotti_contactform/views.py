@@ -1,6 +1,8 @@
 import colander
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Message
+from deform.widget import RichTextWidget
+from deform.widget import TextAreaWidget
 from deform import Form
 from deform import ValidationFailure
 from kotti.views.edit import ContentSchema
@@ -13,6 +15,11 @@ from kotti_contactform.resources import ContactForm
 
 class ContactFormSchema(ContentSchema):
     recipient = colander.SchemaNode(colander.String())
+    body = colander.SchemaNode(
+        colander.String(),
+        widget=RichTextWidget(theme='advanced', width=790, height=500),
+        missing=u"",
+        )
 
 @ensure_view_selector
 def edit_contactform(context, request):
@@ -21,11 +28,14 @@ def edit_contactform(context, request):
 def add_contactform(context, request):
     return generic_add(context, request, ContactFormSchema(), ContactForm, u'contactform')
 
-
 class SubmissionSchema(colander.MappingSchema):
     sender = colander.SchemaNode(colander.String(), validator=colander.Email())
     subject = colander.SchemaNode(colander.String())
-    content = colander.SchemaNode(colander.String())
+    content = colander.SchemaNode(
+        colander.String(),
+        widget=TextAreaWidget(cols=40, rows=5),
+        missing=u"",
+        )
 
 def mail_submission(context, request, appstruct):
     mailer = get_mailer(request)
