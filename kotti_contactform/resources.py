@@ -21,7 +21,7 @@ class ContactForm(Content):
 contactforms = Table(
     'contact_forms', metadata,
     Column('id', Integer, ForeignKey('contents.id'), primary_key=True),
-    Column('recipient', String, nullable=False),
+    Column('recipient', String(255), nullable=False),
 )
 
 mapper(ContactForm, contactforms, inherits=Content,
