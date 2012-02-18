@@ -2,8 +2,6 @@
 kotti_contactform
 =================
 
-!! Still under development !! Don't use it.
-
 This is an extension to Kotti that allows to add a simple contact form
 to your site.
 
