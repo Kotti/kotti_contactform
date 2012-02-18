@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xml:lang="en"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="kotti_contactform"
       metal:use-macro="api.macro('kotti:templates/view/master.pt')">
 
   <head tal:omit-tag="" metal:fill-slot="head-more">
@@ -23,8 +25,7 @@
 	  ${structure: form}
 	</div>
 	<div tal:condition="appstruct">
-	  <p class="alert alert-success">Thanks for your submission!</p>
-	  <p>
+	  <p class="alert alert-success" i18n:translate="">Thanks for your submission!</p>
 	</div>
       </div>
     </div>

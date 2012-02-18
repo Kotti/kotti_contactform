@@ -29,8 +29,13 @@ This is an extension to Kotti that allows to add simple contact forms to your we
       install_requires=[
         'Kotti',
         'pyramid_mailer',
+        'Babel',
       ],
       entry_points="""
       # -*- Entry points: -*-
       """,
+      message_extractors = { "kotti_contactform": [
+        ("**.py",   "chameleon_python", None ),
+        ("**.pt",   "chameleon_xml", None ),
+        ]},
       )

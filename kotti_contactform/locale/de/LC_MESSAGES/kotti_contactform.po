@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.1\n"
 "Report-Msgid-Bugs-To: christian@datenkarussell.de\n"
-"POT-Creation-Date: 2012-02-18 21:48+0100\n"
+"POT-Creation-Date: 2012-02-18 22:26+0100\n"
 "PO-Revision-Date: 2012-02-18 21:50+0100\n"
 "Last-Translator: Christian Neumann <christian@datenkarussell.de>\n"
 "Language-Team: de <christian@datenkarussell.de>\n"
@@ -18,17 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: kotti_contactform/views.py:35
-msgid "Your name"
-msgstr "Ihr Name"
+#: kotti_contactform/views.py:48
+msgid "Full Name"
+msgstr "Name"
 
-#: kotti_contactform/views.py:36
+#: kotti_contactform/views.py:50
+msgid "E-Mail Address"
+msgstr "E-Mail Adresse"
+
+#: kotti_contactform/views.py:51
 msgid "Subject"
 msgstr "Betreff"
 
-#: kotti_contactform/views.py:41
+#: kotti_contactform/views.py:56
 msgid "Your message"
 msgstr "Ihre Mitteilung"
+
+#: kotti_contactform/views.py:64 kotti_contactform/views.py:67
+msgid "Submit"
+msgstr "Senden"
 
 #: kotti_contactform/templates/contactform-view.pt:28
 msgid "Thanks for your submission!"

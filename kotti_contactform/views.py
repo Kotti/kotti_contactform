@@ -1,9 +1,14 @@
 import colander
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Message
+from pyramid.i18n import TranslationStringFactory
+_ = TranslationStringFactory('kotti_contactform')
+from pyramid.i18n import get_locale_name
 from deform.widget import RichTextWidget
 from deform.widget import TextAreaWidget
+from deform.widget import HiddenWidget
 from deform import Form
+from deform import Button
 from deform import ValidationFailure
 from kotti.views.edit import ContentSchema
 from kotti.views.edit import generic_edit
@@ -28,26 +33,36 @@ def edit_contactform(context, request):
 def add_contactform(context, request):
     return generic_add(context, request, ContactFormSchema(), ContactForm, u'contactform')
 
-class SubmissionSchema(colander.MappingSchema):
-    sender = colander.SchemaNode(colander.String(), validator=colander.Email())
-    subject = colander.SchemaNode(colander.String())
-    content = colander.SchemaNode(
-        colander.String(),
-        widget=TextAreaWidget(cols=40, rows=5),
-        missing=u"",
-        )
-
 def mail_submission(context, request, appstruct):
     mailer = get_mailer(request)
     message = Message(subject=appstruct['subject'],
-                      sender=appstruct['sender'],
+                      sender=appstruct['name'] + ' <' + appstruct['sender'] + '>',
                       recipients=[context.recipient],
                       body=appstruct['content'])
     mailer.send(message)
 
 def view_contactform(context, request):
+    locale_name = get_locale_name(request)
+
+    class SubmissionSchema(colander.MappingSchema):
+        name = colander.SchemaNode(colander.String(),
+                                   title=_("Full Name"))
+        sender = colander.SchemaNode(colander.String(), validator=colander.Email(),
+                                     title=_("E-Mail Address"))
+        subject = colander.SchemaNode(colander.String(), title=_("Subject"))
+        content = colander.SchemaNode(
+            colander.String(),
+            widget=TextAreaWidget(cols=40, rows=5),
+            missing=u"",
+            title=_("Your message")
+            )
+        _LOCALE_ = colander.SchemaNode(
+            colander.String(),
+            widget = HiddenWidget(),
+            default=locale_name)
+
     schema = SubmissionSchema()
-    form = Form(schema, buttons=('submit',))
+    form = Form(schema, buttons=[Button('submit', _('Submit'))])
     appstruct = None
     rendered_form = None
     if 'submit' in request.POST:
@@ -97,3 +112,8 @@ def includeme(config):
     config.include('pyramid_mailer')
     includeme_edit(config)
     includeme_view(config)
+    config.add_translation_dirs('kotti_contactform:locale/',
+                                # last two should get included by kotti
+                                'colander:locale',
+                                'deform:locale',
+                                )
