@@ -23,7 +23,9 @@ This is an extension to Kotti that allows to add simple contact forms to your we
       url='http://pypi.python.org/pypi/kotti_contactform',
       license='BSD License',
       packages=['kotti_contactform'],
-      package_data={'kotti_contactform': ['templates/*.pt']},
+      package_data={'kotti_contactform': ['templates/*.pt',
+                                          'locale/*.*',
+                                          'locale/*/LC_MESSAGES/*.*']},
       include_package_data=True,
       zip_safe=False,
       install_requires=[
