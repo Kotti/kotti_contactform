@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from setuptools import Command
 import sys, os
 
-version = '0.1'
+version = '0.1.0b'
 
 class PyTest(Command):
     user_options = []
@@ -21,7 +21,7 @@ setup(name='kotti_contactform',
       long_description="""\
 This is an extension to Kotti that allows to add simple contact forms to your website.""",
       classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Programming Language :: Python",
         "Framework :: Pylons",
         "Topic :: Internet :: WWW/HTTP",
