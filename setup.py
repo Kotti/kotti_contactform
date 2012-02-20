@@ -1,7 +1,19 @@
 from setuptools import setup, find_packages
+from setuptools import Command
 import sys, os
 
 version = '0.1'
+
+class PyTest(Command):
+    user_options = []
+    def initialize_options(self):
+        pass
+    def finalize_options(self):
+        pass
+    def run(self):
+        import sys,subprocess
+        errno = subprocess.call([sys.executable, 'runtests.py'])
+        raise SystemExit(errno)
 
 setup(name='kotti_contactform',
       version=version,
@@ -42,4 +54,5 @@ This is an extension to Kotti that allows to add simple contact forms to your we
         ("**.py",   "chameleon_python", None ),
         ("**.pt",   "chameleon_xml", None ),
         ]},
+      cmdclass = {'test': PyTest},
       )
