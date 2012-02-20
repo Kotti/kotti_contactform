@@ -44,8 +44,6 @@ This is an extension to Kotti that allows to add simple contact forms to your we
         'Kotti',
         'pyramid_mailer',
         'Babel',
-        'pytest',
-        'pytest-cov',
       ],
       entry_points="""
       # -*- Entry points: -*-
