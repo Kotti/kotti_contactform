@@ -7,9 +7,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: kotti_contactform 0.1\n"
+"Project-Id-Version: kotti_contactform 0.1.0b\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-02-18 22:26+0100\n"
+"POT-Creation-Date: 2012-03-10 11:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: kotti_contactform/views.py:48
-msgid "Full Name"
+#: kotti_contactform/resources.py:16
+msgid "Contact form"
 msgstr ""
 
 #: kotti_contactform/views.py:50
+msgid "Full Name"
+msgstr ""
+
+#: kotti_contactform/views.py:52
 msgid "E-Mail Address"
 msgstr ""
 
-#: kotti_contactform/views.py:51
+#: kotti_contactform/views.py:53
 msgid "Subject"
 msgstr ""
 
-#: kotti_contactform/views.py:56
+#: kotti_contactform/views.py:58
 msgid "Your message"
 msgstr ""
 
-#: kotti_contactform/views.py:64 kotti_contactform/views.py:67
+#: kotti_contactform/views.py:66
 msgid "Submit"
 msgstr ""
 
