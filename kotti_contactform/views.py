@@ -54,7 +54,6 @@ def view_contactform(context, request):
         content = colander.SchemaNode(
             colander.String(),
             widget=TextAreaWidget(cols=40, rows=5),
-            missing=u"",
             title=_("Your message")
             )
         _LOCALE_ = colander.SchemaNode(
