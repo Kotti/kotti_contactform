@@ -49,8 +49,8 @@ This is an extension to Kotti that allows to add simple contact forms to your we
       # -*- Entry points: -*-
       """,
       message_extractors = { "kotti_contactform": [
-        ("**.py",   "chameleon_python", None ),
-        ("**.pt",   "chameleon_xml", None ),
+        ("**.py",   "lingua_python", None ),
+        ("**.pt",   "lingua_xml", None ),
         ]},
       cmdclass = {'test': PyTest},
       )
