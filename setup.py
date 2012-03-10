@@ -19,7 +19,10 @@ setup(name='kotti_contactform',
       version=version,
       description="Simple contact form for Kotti sites",
       long_description="""\
-This is an extension to Kotti that allows to add simple contact forms to your website.""",
+This is an extension to Kotti that allows to add simple contact forms to your website.
+Development happens at https://github.com/chrneumann/kotti_contactform
+""",
+
       classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
