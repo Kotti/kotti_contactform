@@ -37,6 +37,7 @@ def mail_submission(context, request, appstruct):
     mailer = get_mailer(request)
     message = Message(subject=appstruct['subject'],
                       sender=appstruct['name'] + ' <' + appstruct['sender'] + '>',
+                      extra_headers={'X-Mailer': "kotti_contactform"},
                       recipients=[context.recipient],
                       body=appstruct['content'])
     mailer.send(message)
