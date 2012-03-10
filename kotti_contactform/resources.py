@@ -7,10 +7,13 @@ from sqlalchemy import Text
 from sqlalchemy.orm import mapper
 from kotti import metadata
 from kotti.resources import Content
+from pyramid.i18n import TranslationStringFactory
+_ = TranslationStringFactory('kotti_contactform')
 
 class ContactForm(Content):
     type_info = Content.type_info.copy(
         name=u'ContactForm',
+        title=_(u'Contact form'),
         add_view=u'add_contactform',
         addable_to=[u'Document'],
         )
