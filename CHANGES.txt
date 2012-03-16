@@ -1,7 +1,10 @@
 History
 =======
 
-0.1.0b3 - Unreleased
+0.1.0 - Unreleased
+------------------
+
+0.1.0b3 - 2012-03-16
 --------------------
 
 - Update models to use Declarative for compatibility with Kotti >= 0.6.
