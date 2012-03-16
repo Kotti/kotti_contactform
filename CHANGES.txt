@@ -1,0 +1,7 @@
+History
+=======
+
+0.1.0b3 - Unreleased
+--------------------
+
+- Update models to use Declarative for compatibility with Kotti >= 0.6.

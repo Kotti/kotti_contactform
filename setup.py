@@ -2,8 +2,6 @@ from setuptools import setup, find_packages
 from setuptools import Command
 import sys, os
 
-version = '0.1.0b2'
-
 class PyTest(Command):
     user_options = []
     def initialize_options(self):
@@ -15,14 +13,14 @@ class PyTest(Command):
         errno = subprocess.call([sys.executable, 'runtests.py'])
         raise SystemExit(errno)
 
-setup(name='kotti_contactform',
-      version=version,
-      description="Simple contact form for Kotti sites",
-      long_description="""\
-This is an extension to Kotti that allows to add simple contact forms to your website.
-Development happens at https://github.com/chrneumann/kotti_contactform
-""",
+here = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(here, 'README.rst')).read()
+CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
+setup(name='kotti_contactform',
+      version= '0.1.0b3',
+      description="Simple contact form for Kotti sites",
+      long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
@@ -34,7 +32,7 @@ Development happens at https://github.com/chrneumann/kotti_contactform
         ],
       keywords='kotti contact form',
       author='Christian Neumann',
-      author_email='christian@datenkarussell.de',
+      author_email='cneumann@datenkarussell.de',
       url='http://pypi.python.org/pypi/kotti_contactform',
       license='BSD License',
       packages=['kotti_contactform'],
