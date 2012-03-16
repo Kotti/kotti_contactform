@@ -44,8 +44,7 @@ Development happens at https://github.com/chrneumann/kotti_contactform
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-        'Kotti',
-        'pyramid_mailer',
+        'Kotti >= 0.6.0b1',
         'Babel',
       ],
       entry_points="""
