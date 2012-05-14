@@ -1,5 +1,6 @@
 import colander
 from pyramid_mailer import get_mailer
+from pyramid_mailer.message import Attachment
 from pyramid_mailer.message import Message
 from pyramid.i18n import TranslationStringFactory
 _ = TranslationStringFactory('kotti_contactform')
@@ -8,13 +9,16 @@ from deform.widget import RichTextWidget
 from deform.widget import TextAreaWidget
 from deform.widget import HiddenWidget
 from deform import Form
+from deform import FileData
 from deform import Button
 from deform import ValidationFailure
+from deform.widget import FileUploadWidget
 from kotti.views.edit import ContentSchema
 from kotti.views.edit import generic_edit
 from kotti.views.edit import generic_add
 from kotti.views.util import ensure_view_selector
 from kotti.views.util import template_api
+from kotti.views.file import FileUploadTempStore
 
 from kotti_contactform.resources import ContactForm
 
@@ -40,11 +44,18 @@ def mail_submission(context, request, appstruct):
                       extra_headers={'X-Mailer': "kotti_contactform"},
                       recipients=[context.recipient],
                       body=appstruct['content'])
+    if appstruct['attachment'] is not None:
+        message.attach(Attachment(
+            filename=appstruct['attachment']['filename'],
+            content_type=appstruct['attachment']['mimetype'],
+            data=appstruct['attachment']['fp']
+            ))
     mailer.send(message)
 
 def view_contactform(context, request):
     locale_name = get_locale_name(request)
 
+    tmpstore = FileUploadTempStore(request)
     class SubmissionSchema(colander.MappingSchema):
         name = colander.SchemaNode(colander.String(),
                                    title=_("Full Name"))
@@ -55,6 +66,12 @@ def view_contactform(context, request):
             colander.String(),
             widget=TextAreaWidget(cols=40, rows=5),
             title=_("Your message")
+            )
+        attachment = colander.SchemaNode(
+            FileData(),
+            title=_('Attachment'),
+            widget=FileUploadWidget(tmpstore),
+            missing=None
             )
         _LOCALE_ = colander.SchemaNode(
             colander.String(),
