@@ -56,6 +56,17 @@ def view_contactform(context, request):
     locale_name = get_locale_name(request)
 
     tmpstore = FileUploadTempStore(request)
+
+    def file_size_limit(node, value):
+        value['fp'].seek(0,2)
+        size = value['fp'].tell()
+        value['fp'].seek(0)
+        max_size = 10
+        if size > max_size * 1024 * 1024:
+            msg = _('Maximum file size: ${size}MB', mapping={'size': max_size})
+            raise colander.Invalid(node, msg)
+                                   
+
     class SubmissionSchema(colander.MappingSchema):
         name = colander.SchemaNode(colander.String(),
                                    title=_("Full Name"))
@@ -71,6 +82,7 @@ def view_contactform(context, request):
             FileData(),
             title=_('Attachment'),
             widget=FileUploadWidget(tmpstore),
+            validator=file_size_limit,
             missing=None
             )
         _LOCALE_ = colander.SchemaNode(

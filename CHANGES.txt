@@ -1,10 +1,11 @@
 History
 =======
 
-0.1.0b4 - Unreleased
+0.1.0b4 - 2012-05-21
 --------------------
 
 - Changed layout.
+- Added possibility for attachments.
 
 0.1.0b3 - 2012-03-16
 --------------------
