@@ -25,15 +25,17 @@ Add a ContactForm
 -----------------
 
   >>> browser.getLink("Add").click()
-  >>> ctrl('ContactForm').click()
-  >>> ctrl('Continue').click()
+  >>> browser.getLink("Contact form").click()
   >>> ctrl("Title").value = "new contact form"
   >>> ctrl("Recipient").value = "test@localhost.local"
   >>> ctrl("Body").value = "The body text"
   >>> ctrl("save").click()
   >>> "Successfully added item" in browser.contents
   True
-  >>> browser.url == testing.BASE_URL + '/new-contact-form/@@edit'
+  >>> browser.url == testing.BASE_URL + '/new-contact-form/'
+  True
+  >>> browser.getLink("Edit").click()
+  >>> "new contact form" in browser.contents
   True
 
 View ContactForm
@@ -60,6 +62,25 @@ Submit ContactForm
   >>> ctrl("E-Mail Address").value = "foo@example.com"
   >>> ctrl("Subject").value = "foosubject"
   >>> ctrl("Your message").value = "test message"
+  >>> import cStringIO
+  >>> ctrl("Attachment").add_file(cStringIO.StringIO('test content'),
+  ...                             'text/plain', 'foo.txt')
   >>> ctrl("submit").click()
   >>> "Thanks for your submission" in browser.contents
+  True
+
+Submit ContactForm with too big attachment file
+-----------------------------------------------
+
+  >>> browser.open(testing.BASE_URL + '/new-contact-form/')
+  >>> ctrl("Full Name").value = "Test"
+  >>> ctrl("E-Mail Address").value = "foo@example.com"
+  >>> ctrl("Subject").value = "foosubject"
+  >>> ctrl("Your message").value = "test message"
+  >>> import cStringIO
+  >>> big_content = "x"*12*1024*1024
+  >>> ctrl("Attachment").add_file(cStringIO.StringIO(big_content),
+  ...                             'text/plain', 'foo.txt')
+  >>> ctrl("submit").click()
+  >>> "Maximum file size" in browser.contents
   True
