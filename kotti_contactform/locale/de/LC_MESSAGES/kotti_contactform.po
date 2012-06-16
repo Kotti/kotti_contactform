@@ -32,7 +32,7 @@ msgstr "Name"
 
 #: kotti_contactform/views.py:74
 msgid "E-Mail Address"
-msgstr "E-Mail Adresse"
+msgstr "E-Mail-Adresse"
 
 #: kotti_contactform/views.py:75
 msgid "Subject"
