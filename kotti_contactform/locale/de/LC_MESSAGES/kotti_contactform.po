@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.1\n"
 "Report-Msgid-Bugs-To: christian@datenkarussell.de\n"
-"POT-Creation-Date: 2012-03-10 11:49+0100\n"
+"POT-Creation-Date: 2012-06-26 13:26+0200\n"
 "PO-Revision-Date: 2012-05-21 12:53+0200\n"
 "Last-Translator: Christian Neumann <christian@datenkarussell.de>\n"
 "Language-Team: de <christian@datenkarussell.de>\n"
@@ -18,35 +18,43 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: kotti_contactform/resources.py:18
+#: kotti_contactform/resources.py:20
 msgid "Contact form"
 msgstr "Kontakt-Formular"
 
-#: kotti_contactform/views.py:66
+#: kotti_contactform/views.py:34
+msgid "Show attachment"
+msgstr "Anhang anzeigen"
+
+#: kotti_contactform/views.py:35
+msgid "If activated the user can upload an attachment."
+msgstr "Wenn aktiviert kann der Nutzer einen Anhang anfügen."
+
+#: kotti_contactform/views.py:74
 msgid "Maximum file size: ${size}MB"
 msgstr "Maximale Dateigröße: ${size}MB"
 
-#: kotti_contactform/views.py:72
+#: kotti_contactform/views.py:83
 msgid "Full Name"
 msgstr "Name"
 
-#: kotti_contactform/views.py:74
+#: kotti_contactform/views.py:85
 msgid "E-Mail Address"
 msgstr "E-Mail-Adresse"
 
-#: kotti_contactform/views.py:75
+#: kotti_contactform/views.py:86
 msgid "Subject"
 msgstr "Betreff"
 
-#: kotti_contactform/views.py:79
+#: kotti_contactform/views.py:90
 msgid "Your message"
 msgstr "Ihre Mitteilung"
 
-#: kotti_contactform/views.py:83
+#: kotti_contactform/views.py:94
 msgid "Attachment"
 msgstr "Anhang"
 
-#: kotti_contactform/views.py:94
+#: kotti_contactform/views.py:106
 msgid "Submit"
 msgstr "Senden"
 
