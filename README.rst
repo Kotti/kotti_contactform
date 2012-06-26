@@ -21,4 +21,13 @@ tries to use your mailserver at localhost:25. If these defaults don't
 fit your needs, you have to configure ``pyramid_mailer``:
 http://packages.python.org/pyramid_mailer/
 
+Database upgrade
+================
+
+If you upgrade from version 0.1.0 to 0.1.1 your database will be migrated
+automatically. The migration is performed with `stucco_evolution`_. If you
+have problems with the upgrade, please create a new issue in the `tracker`_.
+
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
+.. _stucco_evolution: http://pypi.python.org/pypi/stucco_evolution
+.. _tracker: https://github.com/chrneumann/kotti_contactform/issues

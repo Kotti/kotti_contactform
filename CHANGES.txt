@@ -5,6 +5,7 @@ History
 --------------------
 
 - Attachment as optional setting.
+- Added database migration with stucco_evolution.
 
 
 0.1.0b4 - 2012-05-21

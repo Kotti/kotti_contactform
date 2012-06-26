@@ -44,6 +44,7 @@ setup(name='kotti_contactform',
       install_requires=[
         'Kotti >= 0.6.0b1',
         'Babel',
+        'stucco_evolution',
       ],
       entry_points="""
       # -*- Entry points: -*-
