@@ -4,6 +4,8 @@ History
 0.1.1a1 - Unreleased
 --------------------
 
+- Attachment as optional setting.
+
 
 0.1.0b4 - 2012-05-21
 --------------------

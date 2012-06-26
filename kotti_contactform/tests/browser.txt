@@ -4,6 +4,7 @@ kotti_contactform browser tests
 Setup and Login
 ---------------
 
+  >>> import pytest
   >>> from kotti import testing
   >>> tools = testing.setUpFunctional(
   ... **{'kotti.configurators': 'kotti_contactform.kotti_configure',
@@ -84,3 +85,18 @@ Submit ContactForm with too big attachment file
   >>> ctrl("submit").click()
   >>> "Maximum file size" in browser.contents
   True
+
+
+Add a ContactForm without attachement
+-------------------------------------
+
+  >>> browser.open(testing.BASE_URL)
+  >>> browser.getLink("Contact form").click()
+  >>> ctrl("Title").value = "contact form no attachment"
+  >>> ctrl("Recipient").value = "test@localhost.local"
+  >>> ctrl("Body").value = "The body text"
+  >>> ctrl("Show attachment ").selected = False
+  >>> ctrl("save").click()
+  >>> browser.url == testing.BASE_URL + '/contact-form-no-attachment/'
+  True
+  >>> with pytest.raises(LookupError): ctrl("Attachment")

@@ -29,6 +29,14 @@ class ContactFormSchema(ContentSchema):
         widget=RichTextWidget(theme='advanced', width=790, height=500),
         missing=u"",
         )
+    show_attachment = colander.SchemaNode(
+        colander.Boolean(),
+        title=_(u"Show attachment"),
+        description=_(u"If activated the user can upload an attachment."),
+        default=True,
+        missing=True,
+        )
+
 
 @ensure_view_selector
 def edit_contactform(context, request):
@@ -44,7 +52,7 @@ def mail_submission(context, request, appstruct):
                       extra_headers={'X-Mailer': "kotti_contactform"},
                       recipients=[context.recipient],
                       body=appstruct['content'])
-    if appstruct['attachment'] is not None:
+    if 'attachment' in appstruct and appstruct['attachment'] is not None:
         message.attach(Attachment(
             filename=appstruct['attachment']['filename'],
             content_type=appstruct['attachment']['mimetype'],
@@ -65,7 +73,10 @@ def view_contactform(context, request):
         if size > max_size * 1024 * 1024:
             msg = _('Maximum file size: ${size}MB', mapping={'size': max_size})
             raise colander.Invalid(node, msg)
-                                   
+
+    def maybe_show_attachment(node, kw):
+        if kw.get('maybe_show_attachment', True) is False:
+            del node['attachment']
 
     class SubmissionSchema(colander.MappingSchema):
         name = colander.SchemaNode(colander.String(),
@@ -83,14 +94,15 @@ def view_contactform(context, request):
             title=_('Attachment'),
             widget=FileUploadWidget(tmpstore),
             validator=file_size_limit,
-            missing=None
+            missing=None,
             )
         _LOCALE_ = colander.SchemaNode(
             colander.String(),
             widget = HiddenWidget(),
             default=locale_name)
 
-    schema = SubmissionSchema()
+    schema = SubmissionSchema(after_bind=maybe_show_attachment)
+    schema = schema.bind(maybe_show_attachment=context.show_attachment)
     form = Form(schema, buttons=[Button('submit', _('Submit'))])
     appstruct = None
     rendered_form = None
@@ -109,6 +121,7 @@ def view_contactform(context, request):
         'appstruct': appstruct,
         'api': template_api(context, request),
         }
+
 
 def includeme_edit(config):
     config.add_view(

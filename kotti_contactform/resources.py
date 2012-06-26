@@ -3,6 +3,7 @@ from sqlalchemy import ForeignKey
 from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import Text
+from sqlalchemy import Boolean
 from kotti.resources import Content
 from pyramid.i18n import TranslationStringFactory
 _ = TranslationStringFactory('kotti_contactform')
@@ -13,6 +14,7 @@ class ContactForm(Content):
     id = Column('id', Integer, ForeignKey('contents.id'), primary_key=True)
     recipient = Column(String(255), nullable=False)
     body = Column(Text)
+    show_attachment = Column(Boolean())
     type_info = Content.type_info.copy(
         name=u'ContactForm',
         title=_(u'Contact form'),
@@ -20,7 +22,8 @@ class ContactForm(Content):
         addable_to=[u'Document'],
         )
 
-    def __init__(self, recipient=u"", body=u"", **kwargs):
+    def __init__(self, recipient=u"", body=u"", show_attachment=True, **kwargs):
         super(ContactForm, self).__init__(**kwargs)
         self.recipient = recipient
         self.body = body
+        self.show_attachment = show_attachment
