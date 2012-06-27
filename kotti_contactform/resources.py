@@ -14,7 +14,7 @@ class ContactForm(Content):
     id = Column('id', Integer, ForeignKey('contents.id'), primary_key=True)
     recipient = Column(String(255), nullable=False)
     body = Column(Text)
-    show_attachment = Column(Boolean())
+    show_attachment = Column(Boolean(), nullable=False)
     type_info = Content.type_info.copy(
         name=u'ContactForm',
         title=_(u'Contact form'),
