@@ -24,10 +24,21 @@ http://packages.python.org/pyramid_mailer/
 Database upgrade
 ================
 
-If you upgrade from version 0.1.0 to 0.1.1 your database will be migrated
-automatically. The migration is performed with `stucco_evolution`_. If you
-have problems with the upgrade, please create a new issue in the `tracker`_.
+If you upgrade from version 0.1.0 to 0.1.1 you have to migrate your 
+database. The migration is performed with `alembic`_. For the migration
+you have to install alembic with::
+
+  $ python setup.py install
+
+or rerun your buildout. The migration is performed with::
+
+  $ alembic -c development.ini upgrade head
+
+For integration of alembic in your environment please refer to the 
+`alembic documentation`_. If you have problems with the upgrade, 
+please create a new issue in the `tracker`_.
 
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
-.. _stucco_evolution: http://pypi.python.org/pypi/stucco_evolution
+.. _alembic: http://pypi.python.org/pypi/alembic
+.. _alembic documentation: http://alembic.readthedocs.org/en/latest/index.html
 .. _tracker: https://github.com/chrneumann/kotti_contactform/issues
