@@ -1,0 +1,8 @@
+Authors
+=======
+
+- Christian Neumann
+- Marco Scheidhuber
+
+For a complete list of contributors, see
+https://github.com/chrneumann/kotti_contactform/graphs/contributors
