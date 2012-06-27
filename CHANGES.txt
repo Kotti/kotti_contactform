@@ -1,11 +1,11 @@
 History
 =======
 
-0.1.1a1 - Unreleased
+0.1.1a1 - 2012-06-27
 --------------------
 
 - Attachment as optional setting.
-- Added database migration with stucco_evolution.
+- Added database migration with alembic.
 
 
 0.1.0b4 - 2012-05-21
