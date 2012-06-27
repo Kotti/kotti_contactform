@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.1.1a1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2012-06-26 13:26+0200\n"
+"POT-Creation-Date: 2012-06-27 19:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgid "Show attachment"
 msgstr ""
 
 #: kotti_contactform/views.py:35
-msgid "If activated the user can upload an attachment."
+msgid "If activated, the user can upload an attachment."
 msgstr ""
 
 #: kotti_contactform/views.py:74

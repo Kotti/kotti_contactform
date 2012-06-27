@@ -32,7 +32,7 @@ class ContactFormSchema(ContentSchema):
     show_attachment = colander.SchemaNode(
         colander.Boolean(),
         title=_(u"Show attachment"),
-        description=_(u"If activated the user can upload an attachment."),
+        description=_(u"If activated, the user can upload an attachment."),
         default=True,
         missing=True,
         )
