@@ -1,6 +1,11 @@
 History
 =======
 
+0.1.1a3 - unreleased
+--------------------
+
+- Added Japanese translation.
+
 0.1.1a2 - 2012-06-28
 --------------------
 
