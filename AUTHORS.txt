@@ -1,6 +1,7 @@
 Authors
 =======
 
+- Tetsuya Morimoto
 - Christian Neumann
 - Marco Scheidhuber
 
