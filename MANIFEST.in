@@ -1,7 +1,5 @@
-include README.rst
-include COPYING.txt
-include CHANGES.txt
-recursive-include kotti_contactform *.mo *.pt *.txt
-include development.ini
 include runtests.py
-include kotti_contactform/tests/__init__.py
+global-include *.txt *.rst *.ini
+recursive-include kotti_contactform/alembic *.mako README
+recursive-include kotti_contactform/locale *.mo *.po *.pot
+recursive-include kotti_contactform/templates *.pt
