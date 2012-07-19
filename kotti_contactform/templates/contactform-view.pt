@@ -5,28 +5,22 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="kotti_contactform"
       metal:use-macro="api.macro('kotti:templates/view/master.pt')">
-
-  <head tal:omit-tag="" metal:fill-slot="head-more">
-<!--    <link rel="stylesheet" href="${request.static_url('kotti_contactform:static/style.css')}" type="text/css" /> -->
-    <more tal:omit-tag="" metal:define-slot="head"></more>
-  </head>
-
   <article metal:fill-slot="content" class="contactform-view content">
     <h1>${api.context.title}</h1>
     <p class="description">
       ${api.context.description}
     </p>
-    <div class="row">
+    <div class="row-fluid">
       <div class="span6">
-	${structure: api.context.body}
+        ${structure: api.context.body}
       </div>
       <div class="span6">
-	<div tal:condition="form">
-	  ${structure: form}
-	</div>
-	<div tal:condition="appstruct">
-	  <p class="alert alert-success" i18n:translate="">Thanks for your submission!</p>
-	</div>
+        <div tal:condition="form">
+          ${structure: form}
+        </div>
+        <div tal:condition="appstruct">
+          <p class="alert alert-success" i18n:translate="">Thanks for your submission!</p>
+        </div>
       </div>
     </div>
   </article>

@@ -4,6 +4,7 @@ History
 0.1.1a3 - unreleased
 --------------------
 
+- Changed class row to row-fluid in contact form template.
 - Added Japanese translation.
 
 0.1.1a2 - 2012-06-28
