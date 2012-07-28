@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.1a3 - unreleased
+0.1.1a3 - 2012-07-28
 --------------------
 
 - Changed class row to row-fluid in contact form template.
