@@ -18,7 +18,7 @@ README = open(os.path.join(here, 'README.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 setup(name='kotti_contactform',
-      version= '0.1.1a3',
+      version= '0.1.1a4',
       description="Simple contact form for Kotti sites",
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
