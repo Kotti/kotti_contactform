@@ -1,26 +1,37 @@
 from setuptools import setup, find_packages
-from setuptools import Command
-import sys, os
-
-class PyTest(Command):
-    user_options = []
-    def initialize_options(self):
-        pass
-    def finalize_options(self):
-        pass
-    def run(self):
-        import sys,subprocess
-        errno = subprocess.call([sys.executable, 'runtests.py'])
-        raise SystemExit(errno)
+import os
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
+install_requires=[
+    'Kotti >= 0.7dev5',
+    'Babel',
+    'Pillow',
+    'colander >= 0.9.8',
+    'alembic',
+]
+
+tests_require = [
+    'WebTest',
+    'mock',
+    'pytest',
+    'pytest-cov',
+    'pytest-pep8',
+    'pytest-xdist',
+    'wsgi_intercept',
+    'zope.testbrowser',
+    ]
+
 setup(name='kotti_contactform',
       version= '0.1.1a4',
       description="Simple contact form for Kotti sites",
       long_description=README + '\n\n' + CHANGES,
+      keywords='kotti contact form',
+      maintainer='Christian Neumann',
+      maintainer_email='cneumann@datenkarussell.de',
+      url='http://pypi.python.org/pypi/kotti_contactform',
       classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
@@ -30,26 +41,18 @@ setup(name='kotti_contactform',
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         "License :: OSI Approved :: BSD License",
         ],
-      keywords='kotti contact form',
-      maintainer='Christian Neumann',
-      maintainer_email='cneumann@datenkarussell.de',
-      url='http://pypi.python.org/pypi/kotti_contactform',
-      license='BSD License',
-      packages=['kotti_contactform'],
+      author='Christian Neumann and contributors',
+      author_email='cneumann@datenkarussell.de',
+      license='BSD-2-Clause',
+      packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      install_requires=[
-        'Kotti >= 0.6.0b1',
-        'js.bootstrap >= 2.1.3',
-        'Babel',
-        'alembic',
-      ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
-      message_extractors = { "kotti_contactform": [
+      install_requires=install_requires,
+      extras_require={
+          'testing': tests_require,
+      },
+      message_extractors = { "kotti_events": [
         ("**.py",   "lingua_python", None ),
         ("**.pt",   "lingua_xml", None ),
         ]},
-      cmdclass = {'test': PyTest},
       )
