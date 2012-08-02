@@ -8,6 +8,7 @@ from kotti.resources import Content
 from pyramid.i18n import TranslationStringFactory
 _ = TranslationStringFactory('kotti_contactform')
 
+
 class ContactForm(Content):
     __tablename__ = 'contact_forms'
     __mapper_args__ = dict(polymorphic_identity='contact_form')
@@ -20,9 +21,10 @@ class ContactForm(Content):
         title=_(u'Contact form'),
         add_view=u'add_contactform',
         addable_to=[u'Document'],
-        )
+    )
 
-    def __init__(self, recipient=u"", body=u"", show_attachment=True, **kwargs):
+    def __init__(self, recipient=u"", body=u"",
+                 show_attachment=True, **kwargs):
         super(ContactForm, self).__init__(**kwargs)
         self.recipient = recipient
         self.body = body

@@ -22,33 +22,38 @@ from kotti.views.file import FileUploadTempStore
 
 from kotti_contactform.resources import ContactForm
 
+
 class ContactFormSchema(ContentSchema):
     recipient = colander.SchemaNode(colander.String())
     body = colander.SchemaNode(
         colander.String(),
         widget=RichTextWidget(theme='advanced', width=790, height=500),
         missing=u"",
-        )
+    )
     show_attachment = colander.SchemaNode(
         colander.Boolean(),
         title=_(u"Show attachment"),
         description=_(u"If activated, the user can upload an attachment."),
         default=True,
         missing=True,
-        )
+    )
 
 
 @ensure_view_selector
 def edit_contactform(context, request):
     return generic_edit(context, request, ContactFormSchema())
 
+
 def add_contactform(context, request):
-    return generic_add(context, request, ContactFormSchema(), ContactForm, u'contactform')
+    return generic_add(context, request, ContactFormSchema(),
+                       ContactForm, u'contactform')
+
 
 def mail_submission(context, request, appstruct):
     mailer = get_mailer(request)
     message = Message(subject=appstruct['subject'],
-                      sender=appstruct['name'] + ' <' + appstruct['sender'] + '>',
+                      sender=appstruct['name'] + ' <'
+                      + appstruct['sender'] + '>',
                       extra_headers={'X-Mailer': "kotti_contactform"},
                       recipients=[context.recipient],
                       body=appstruct['content'])
@@ -57,8 +62,9 @@ def mail_submission(context, request, appstruct):
             filename=appstruct['attachment']['filename'],
             content_type=appstruct['attachment']['mimetype'],
             data=appstruct['attachment']['fp']
-            ))
+        ))
     mailer.send(message)
+
 
 def view_contactform(context, request):
     locale_name = get_locale_name(request)
@@ -66,7 +72,7 @@ def view_contactform(context, request):
     tmpstore = FileUploadTempStore(request)
 
     def file_size_limit(node, value):
-        value['fp'].seek(0,2)
+        value['fp'].seek(0, 2)
         size = value['fp'].tell()
         value['fp'].seek(0)
         max_size = 10
@@ -81,24 +87,25 @@ def view_contactform(context, request):
     class SubmissionSchema(colander.MappingSchema):
         name = colander.SchemaNode(colander.String(),
                                    title=_("Full Name"))
-        sender = colander.SchemaNode(colander.String(), validator=colander.Email(),
+        sender = colander.SchemaNode(colander.String(),
+                                     validator=colander.Email(),
                                      title=_("E-Mail Address"))
         subject = colander.SchemaNode(colander.String(), title=_("Subject"))
         content = colander.SchemaNode(
             colander.String(),
             widget=TextAreaWidget(cols=40, rows=5),
             title=_("Your message")
-            )
+        )
         attachment = colander.SchemaNode(
             FileData(),
             title=_('Attachment'),
             widget=FileUploadWidget(tmpstore),
             validator=file_size_limit,
             missing=None,
-            )
+        )
         _LOCALE_ = colander.SchemaNode(
             colander.String(),
-            widget = HiddenWidget(),
+            widget=HiddenWidget(),
             default=locale_name)
 
     schema = SubmissionSchema(after_bind=maybe_show_attachment)
@@ -120,7 +127,7 @@ def view_contactform(context, request):
         'form': rendered_form,
         'appstruct': appstruct,
         'api': template_api(context, request),
-        }
+    }
 
 
 def includeme_edit(config):
@@ -130,14 +137,15 @@ def includeme_edit(config):
         name='edit',
         permission='edit',
         renderer='kotti:templates/edit/node.pt',
-        )
+    )
 
     config.add_view(
         add_contactform,
         name=ContactForm.type_info.add_view,
         permission='add',
         renderer='kotti:templates/edit/node.pt',
-        )
+    )
+
 
 def includeme_view(config):
     config.add_view(
@@ -146,9 +154,11 @@ def includeme_view(config):
         name='view',
         permission='view',
         renderer='templates/contactform-view.pt',
-        )
-    config.add_static_view('static-kotti_contactform', 'kotti_contactform:static')
+    )
+    config.add_static_view('static-kotti_contactform',
+                           'kotti_contactform:static')
 #   config.add_static_view('static', 'deform:static')
+
 
 def includeme(config):
     config.include('pyramid_mailer')
