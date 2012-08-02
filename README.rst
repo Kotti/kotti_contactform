@@ -3,11 +3,15 @@ kotti_contactform
 =================
 
 This is an extension to Kotti that allows to add a simple contact form
-to your site.
+to your site. |build status|_
 
 `Find out more about Kotti`_
 
 Development happens at https://github.com/chrneumann/kotti_contactform
+
+.. |build status| image:: https://secure.travis-ci.org/chrneumann/kotti_contactform.png?branch=master
+.. _build status: http://travis-ci.org/Pylons/Kotti
+.. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
 
 Setup
 =====
@@ -38,7 +42,6 @@ For integration of alembic in your environment please refer to the
 `alembic documentation`_. If you have problems with the upgrade, 
 please create a new issue in the `tracker`_.
 
-.. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
 .. _alembic: http://pypi.python.org/pypi/alembic
 .. _alembic documentation: http://alembic.readthedocs.org/en/latest/index.html
 .. _tracker: https://github.com/chrneumann/kotti_contactform/issues
