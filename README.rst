@@ -25,18 +25,19 @@ tries to use your mailserver at localhost:25. If these defaults don't
 fit your needs, you have to configure ``pyramid_mailer``:
 http://packages.python.org/pyramid_mailer/
 
+If you add kotti_contactform to an existing Kotti site (i.e. a Kotti
+installation with an already existing database), you have to
+initialize the database migration with Kotti's ``kotti-migrate``
+console skript: ``kotti-migrate
+stamp_head --location=kotti_contactform:alembic``.
+
 Database upgrade
 ================
 
-If you upgrade from version 0.1.0 to 0.1.1 you have to migrate your 
-database. The migration is performed with `alembic`_. For the migration
-you have to install alembic with::
-
-  $ python setup.py install
-
-or rerun your buildout. The migration is performed with::
-
-  $ alembic -c development.ini upgrade head
+If you upgrade from version 0.1.0 to 0.1.1 you have to migrate your
+database. The migration is performed with `alembic`_ and Kotti's
+console script ``kotti-migrate``. To migrate, run ``kotti-migrate
+upgrade_all --location=kotti_contactform:alembic``.
 
 For integration of alembic in your environment please refer to the 
 `alembic documentation`_. If you have problems with the upgrade, 

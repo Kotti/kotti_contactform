@@ -3,3 +3,4 @@ def kotti_configure(settings):
     settings['kotti.available_types'] += (
         ' kotti_contactform.resources.ContactForm'
     )
+    settings['kotti.alembic_dirs'] += ' kotti_contactform:alembic'
