@@ -29,7 +29,7 @@ If you add kotti_contactform to an existing Kotti site (i.e. a Kotti
 installation with an already existing database), you have to
 initialize the database migration with Kotti's ``kotti-migrate``
 console skript: ``kotti-migrate
-stamp_head --location=kotti_contactform:alembic``.
+stamp_head --scripts=kotti_contactform:alembic``.
 
 Database upgrade
 ================
@@ -37,7 +37,7 @@ Database upgrade
 If you upgrade from version 0.1.0 to 0.1.1 you have to migrate your
 database. The migration is performed with `alembic`_ and Kotti's
 console script ``kotti-migrate``. To migrate, run ``kotti-migrate
-upgrade_all --location=kotti_contactform:alembic``.
+upgrade_all --scripts=kotti_contactform:alembic``.
 
 For integration of alembic in your environment please refer to the 
 `alembic documentation`_. If you have problems with the upgrade, 
