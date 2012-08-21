@@ -25,7 +25,7 @@ tests_require = [
     ]
 
 setup(name='kotti_contactform',
-      version= '0.1.1a4',
+      version= '0.1.1a5',
       description="Simple contact form for Kotti sites",
       long_description=README + '\n\n' + CHANGES,
       keywords='kotti contact form',

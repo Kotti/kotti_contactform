@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.1a5 - unreleased
+0.1.1a5 - 2012-08-21
 --------------------
 
 - Use alembic environment of Kotti for upgrades.
