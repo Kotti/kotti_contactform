@@ -18,8 +18,7 @@ from kotti.views.edit import generic_edit
 from kotti.views.edit import generic_add
 from kotti.views.util import ensure_view_selector
 from kotti.views.util import template_api
-from kotti.views.file import FileUploadTempStore
-
+from kotti.views.form import FileUploadTempStore
 from kotti_contactform.resources import ContactForm
 
 
