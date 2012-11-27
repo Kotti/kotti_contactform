@@ -5,8 +5,8 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-install_requires=[
-    'Kotti >= 0.7',
+install_requires = [
+    'Kotti >= 0.8a1',
     'Babel',
     'Pillow',
     'colander >= 0.9.8',
@@ -25,7 +25,7 @@ tests_require = [
     ]
 
 setup(name='kotti_contactform',
-      version= '0.1.1dev',
+      version='0.1.1dev',
       description="Simple contact form for Kotti sites",
       long_description=README + '\n\n' + CHANGES,
       keywords='kotti contact form',
@@ -51,8 +51,8 @@ setup(name='kotti_contactform',
       extras_require={
           'testing': tests_require,
       },
-      message_extractors = { "kotti_events": [
-        ("**.py",   "lingua_python", None ),
-        ("**.pt",   "lingua_xml", None ),
+      message_extractors={"kotti_events": [
+        ("**.py", "lingua_python", None),
+        ("**.pt", "lingua_xml", None),
         ]},
       )
