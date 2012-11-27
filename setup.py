@@ -13,6 +13,17 @@ install_requires = [
     'alembic',
 ]
 
+tests_require = [
+    'WebTest',
+    'mock',
+    'pytest',
+    'pytest-cov',
+    'pytest-pep8==1.0.2',
+    'pytest-xdist',
+    'wsgi_intercept',
+    'zope.testbrowser',
+]
+
 setup(name='kotti_contactform',
       version='0.1.1dev',
       description="Simple contact form for Kotti sites",
@@ -37,7 +48,9 @@ setup(name='kotti_contactform',
       include_package_data=True,
       zip_safe=False,
       install_requires=install_requires,
-      extras_require={},
+      extras_require={
+          'testing': tests_require,
+      },
       message_extractors={"kotti_events": [
         ("**.py", "lingua_python", None),
         ("**.pt", "lingua_xml", None),
