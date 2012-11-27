@@ -2,8 +2,6 @@ import colander
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Attachment
 from pyramid_mailer.message import Message
-from pyramid.i18n import TranslationStringFactory
-_ = TranslationStringFactory('kotti_contactform')
 from pyramid.i18n import get_locale_name
 from deform.widget import RichTextWidget
 from deform.widget import TextAreaWidget
@@ -19,6 +17,7 @@ from kotti.views.form import EditFormView
 from kotti.views.util import template_api
 from kotti.views.form import FileUploadTempStore
 from kotti_contactform.resources import ContactForm
+from kotti_contactform import _
 
 
 class ContactFormSchema(ContentSchema):
