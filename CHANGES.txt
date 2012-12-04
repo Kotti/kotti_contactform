@@ -1,6 +1,16 @@
 History
 =======
 
+0.1.1 - Unreleased
+------------------
+
+- Changes for compatibility with Kotti>=0.8. These changes
+  are not backward compatibel. If you want to use kotti_contactform
+  with Kotti<=0.7.x then pin to 0.1.1a5.
+  - Use form classes for the form views instead of deprecated generic functions.
+- Use pyramid.includes instead of deprecated kotti.includes.
+
+
 0.1.1a5 - 2012-08-21
 --------------------
 

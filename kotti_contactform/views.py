@@ -2,8 +2,6 @@ import colander
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Attachment
 from pyramid_mailer.message import Message
-from pyramid.i18n import TranslationStringFactory
-_ = TranslationStringFactory('kotti_contactform')
 from pyramid.i18n import get_locale_name
 from deform.widget import RichTextWidget
 from deform.widget import TextAreaWidget
@@ -14,13 +12,12 @@ from deform import Button
 from deform import ValidationFailure
 from deform.widget import FileUploadWidget
 from kotti.views.edit import ContentSchema
-from kotti.views.edit import generic_edit
-from kotti.views.edit import generic_add
-from kotti.views.util import ensure_view_selector
+from kotti.views.form import AddFormView
+from kotti.views.form import EditFormView
 from kotti.views.util import template_api
-from kotti.views.file import FileUploadTempStore
-
+from kotti.views.form import FileUploadTempStore
 from kotti_contactform.resources import ContactForm
+from kotti_contactform import _
 
 
 class ContactFormSchema(ContentSchema):
@@ -39,14 +36,14 @@ class ContactFormSchema(ContentSchema):
     )
 
 
-@ensure_view_selector
-def edit_contactform(context, request):
-    return generic_edit(context, request, ContactFormSchema())
+class ContactformEditForm(EditFormView):
+    schema_factory = ContactFormSchema
 
 
-def add_contactform(context, request):
-    return generic_add(context, request, ContactFormSchema(),
-                       ContactForm, u'contactform')
+class ContactformAddForm(AddFormView):
+    schema_factory = ContactFormSchema
+    add = ContactForm
+    item_type = _(u"Contact Form")
 
 
 def mail_submission(context, request, appstruct):
@@ -132,7 +129,7 @@ def view_contactform(context, request):
 
 def includeme_edit(config):
     config.add_view(
-        edit_contactform,
+        ContactformEditForm,
         context=ContactForm,
         name='edit',
         permission='edit',
@@ -140,7 +137,7 @@ def includeme_edit(config):
     )
 
     config.add_view(
-        add_contactform,
+        ContactformAddForm,
         name=ContactForm.type_info.add_view,
         permission='add',
         renderer='kotti:templates/edit/node.pt',

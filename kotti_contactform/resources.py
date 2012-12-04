@@ -5,8 +5,7 @@ from sqlalchemy import String
 from sqlalchemy import Text
 from sqlalchemy import Boolean
 from kotti.resources import Content
-from pyramid.i18n import TranslationStringFactory
-_ = TranslationStringFactory('kotti_contactform')
+from kotti_contactform import _
 
 
 class ContactForm(Content):
