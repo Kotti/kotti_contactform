@@ -1,7 +1,7 @@
 History
 =======
 
-0.1.1 - Unreleased
+0.1.1 - 2012-12-28
 ------------------
 
 - Changes for compatibility with Kotti>=0.8. These changes
