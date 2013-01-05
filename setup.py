@@ -13,16 +13,6 @@ install_requires = [
     'alembic',
 ]
 
-tests_require = [
-    'WebTest',
-    'mock',
-    'pytest',
-    'pytest-cov',
-    'pytest-pep8==1.0.2',
-    'pytest-xdist',
-    'wsgi_intercept',
-    'zope.testbrowser',
-]
 
 setup(name='kotti_contactform',
       version='0.2dev',
@@ -31,7 +21,7 @@ setup(name='kotti_contactform',
       keywords='kotti contact form',
       maintainer='Christian Neumann',
       maintainer_email='cneumann@datenkarussell.de',
-      url='http://pypi.python.org/pypi/kotti_contactform',
+      url='https://github.com/Kotti/kotti_contactform',
       classifiers=[
         "Development Status :: 4 - Beta",
         "Programming Language :: Python",
@@ -48,10 +38,8 @@ setup(name='kotti_contactform',
       include_package_data=True,
       zip_safe=False,
       install_requires=install_requires,
-      extras_require={
-          'testing': tests_require,
-      },
-      message_extractors={"kotti_events": [
+      extras_require={},
+      message_extractors={"kotti_contactform": [
         ("**.py", "lingua_python", None),
         ("**.pt", "lingua_xml", None),
         ]},

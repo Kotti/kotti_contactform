@@ -9,8 +9,8 @@ to your site. |build status|_
 
 Development happens at https://github.com/Kotti/kotti_contactform
 
-.. |build status| image:: https://secure.travis-ci.org/chrneumann/kotti_contactform.png?branch=master
-.. _build status: http://travis-ci.org/chrneumann/kotti_contactform
+.. |build status| image:: https://secure.travis-ci.org/Kotti/kotti_contactform.png?branch=master
+.. _build status: http://travis-ci.org/Kotti/kotti_contactform
 .. _Find out more about Kotti: http://pypi.python.org/pypi/Kotti
 
 Setup

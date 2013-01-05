@@ -4,8 +4,11 @@ History
 0.2 - Unreleased
 ----------------
 
+- Implement IDefaultworkflow.
 - Add an additional one column layout for the contact form view.
-- Use decorators for view config
+- Use decorators for view config.
+- Add fanstatic filter to development.ini.
+
 
 0.1.1 - 2012-12-28
 ------------------
