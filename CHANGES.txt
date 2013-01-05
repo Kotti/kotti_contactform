@@ -4,14 +4,16 @@ History
 0.2 - Unreleased
 ----------------
 
+- Add an additional one column layout for the contact form view.
+- Use decorators for view config
 
 0.1.1 - 2012-12-28
 ------------------
 
 - Changes for compatibility with Kotti>=0.8. These changes
-  are not backward compatibel. If you want to use kotti_contactform
+  are not backward compatible. If you want to use kotti_contactform
   with Kotti<=0.7.x then pin to 0.1.1a5.
-  - Use form classes for the form views instead of deprecated generic functions.
+- Use form classes for the form views instead of deprecated generic functions.
 - Use pyramid.includes instead of deprecated kotti.includes.
 
 
@@ -42,7 +44,6 @@ History
 
 - Attachment as optional setting.
 - Added database migration with alembic.
-
 
 0.1.0b4 - 2012-05-21
 --------------------

@@ -1,26 +1,29 @@
 import colander
-from pyramid_mailer import get_mailer
-from pyramid_mailer.message import Attachment
-from pyramid_mailer.message import Message
-from pyramid.i18n import get_locale_name
-from deform.widget import RichTextWidget
-from deform.widget import TextAreaWidget
-from deform.widget import HiddenWidget
-from deform import Form
-from deform import FileData
 from deform import Button
+from deform import FileData
+from deform import Form
 from deform import ValidationFailure
 from deform.widget import FileUploadWidget
+from deform.widget import HiddenWidget
+from deform.widget import RichTextWidget
+from deform.widget import TextAreaWidget
 from kotti.views.edit import ContentSchema
 from kotti.views.form import AddFormView
 from kotti.views.form import EditFormView
-from kotti.views.util import template_api
 from kotti.views.form import FileUploadTempStore
-from kotti_contactform.resources import ContactForm
+from kotti.views.util import template_api
+from pyramid.i18n import get_locale_name
+from pyramid.view import view_config
+from pyramid_mailer import get_mailer
+from pyramid_mailer.message import Attachment
+from pyramid_mailer.message import Message
+
 from kotti_contactform import _
+from kotti_contactform.resources import ContactForm
 
 
 class ContactFormSchema(ContentSchema):
+
     recipient = colander.SchemaNode(colander.String())
     body = colander.SchemaNode(
         colander.String(),
@@ -36,17 +39,25 @@ class ContactFormSchema(ContentSchema):
     )
 
 
-class ContactformEditForm(EditFormView):
-    schema_factory = ContactFormSchema
-
-
+@view_config(name=ContactForm.type_info.add_view,
+             permission='add',
+             renderer='kotti:templates/edit/node.pt')
 class ContactformAddForm(AddFormView):
     schema_factory = ContactFormSchema
     add = ContactForm
     item_type = _(u"Contact Form")
 
 
+@view_config(name='edit',
+             context=ContactForm, permission='edit',
+             renderer='kotti:templates/edit/node.pt')
+class ContactformEditForm(EditFormView):
+
+    schema_factory = ContactFormSchema
+
+
 def mail_submission(context, request, appstruct):
+
     mailer = get_mailer(request)
     message = Message(subject=appstruct['subject'],
                       sender=appstruct['name'] + ' <'
@@ -63,7 +74,16 @@ def mail_submission(context, request, appstruct):
     mailer.send(message)
 
 
+@view_config(name='view',
+             context=ContactForm,
+             permission='view',
+             renderer='kotti_contactform:templates/contactform-view-two-columns.pt')
+@view_config(name='view-1-col',
+             context=ContactForm,
+             permission='view',
+             renderer='kotti_contactform:templates/contactform-view-one-column.pt')
 def view_contactform(context, request):
+
     locale_name = get_locale_name(request)
 
     tmpstore = FileUploadTempStore(request)
@@ -82,6 +102,7 @@ def view_contactform(context, request):
             del node['attachment']
 
     class SubmissionSchema(colander.MappingSchema):
+
         name = colander.SchemaNode(colander.String(),
                                    title=_("Full Name"))
         sender = colander.SchemaNode(colander.String(),
@@ -125,44 +146,3 @@ def view_contactform(context, request):
         'appstruct': appstruct,
         'api': template_api(context, request),
     }
-
-
-def includeme_edit(config):
-    config.add_view(
-        ContactformEditForm,
-        context=ContactForm,
-        name='edit',
-        permission='edit',
-        renderer='kotti:templates/edit/node.pt',
-    )
-
-    config.add_view(
-        ContactformAddForm,
-        name=ContactForm.type_info.add_view,
-        permission='add',
-        renderer='kotti:templates/edit/node.pt',
-    )
-
-
-def includeme_view(config):
-    config.add_view(
-        view_contactform,
-        context=ContactForm,
-        name='view',
-        permission='view',
-        renderer='templates/contactform-view.pt',
-    )
-    config.add_static_view('static-kotti_contactform',
-                           'kotti_contactform:static')
-#   config.add_static_view('static', 'deform:static')
-
-
-def includeme(config):
-    config.include('pyramid_mailer')
-    includeme_edit(config)
-    includeme_view(config)
-    config.add_translation_dirs('kotti_contactform:locale/',
-                                # last two should get included by kotti
-                                'colander:locale',
-                                'deform:locale',
-                                )

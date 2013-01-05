@@ -8,7 +8,7 @@ Setup and Login
   >>> from kotti import testing
   >>> tools = testing.setUpFunctional(
   ... **{'kotti.configurators': 'kotti_contactform.kotti_configure',
-  ...    'pyramid.includes': 'kotti_contactform.tests.setup_dummy_mailer',
+  ...    'pyramid.includes': 'pyramid_mailer.testing',
   ...   })
   >>> browser = tools['Browser']()
   >>> ctrl = browser.getControl

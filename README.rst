@@ -7,7 +7,7 @@ to your site. |build status|_
 
 `Find out more about Kotti`_
 
-Development happens at https://github.com/chrneumann/kotti_contactform
+Development happens at https://github.com/Kotti/kotti_contactform
 
 .. |build status| image:: https://secure.travis-ci.org/chrneumann/kotti_contactform.png?branch=master
 .. _build status: http://travis-ci.org/chrneumann/kotti_contactform
@@ -39,8 +39,8 @@ database. The migration is performed with `alembic`_ and Kotti's
 console script ``kotti-migrate``. To migrate, run ``kotti-migrate
 upgrade_all --scripts=kotti_contactform:alembic``.
 
-For integration of alembic in your environment please refer to the 
-`alembic documentation`_. If you have problems with the upgrade, 
+For integration of alembic in your environment please refer to the
+`alembic documentation`_. If you have problems with the upgrade,
 please create a new issue in the `tracker`_.
 
 .. _alembic: http://pypi.python.org/pypi/alembic
