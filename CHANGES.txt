@@ -4,7 +4,7 @@ History
 0.3 - Unreleased
 ----------------
 
-
+- Added frech translation. [jon1012]
 
 0.2 - 2013-01-07
 ----------------
