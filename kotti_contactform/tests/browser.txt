@@ -31,7 +31,7 @@ Add a ContactForm
   >>> ctrl("Recipient").value = "test@localhost.local"
   >>> ctrl("Body").value = "The body text"
   >>> ctrl("save").click()
-  >>> "Successfully added item" in browser.contents
+  >>> "Item was added" in browser.contents
   True
   >>> browser.url == testing.BASE_URL + '/new-contact-form/'
   True
