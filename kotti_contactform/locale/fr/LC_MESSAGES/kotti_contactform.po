@@ -1,0 +1,64 @@
+# French translations for kotti_contactform.
+# Copyright (C) 2012 Christian Neumann
+# This file is distributed under the same license as the kotti_contactform
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kotti_contactform 0.1.1a1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-06-27 19:19+0200\n"
+"PO-Revision-Date: 2013-10-30 19:05+0100\n"
+"Last-Translator: Jonathan Schemoul <jonathan.schemoul@gmail.com>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: kotti_contactform/resources.py:20
+msgid "Contact form"
+msgstr "Formulaire de Contact"
+
+#: kotti_contactform/views.py:34
+msgid "Show attachment"
+msgstr "Afficher la pièce jointe"
+
+#: kotti_contactform/views.py:35
+msgid "If activated, the user can upload an attachment."
+msgstr "Si activé, l'utilisateur peut joindre un fichier."
+
+#: kotti_contactform/views.py:74
+msgid "Maximum file size: ${size}MB"
+msgstr "Taille de fichier maximm : ${size}MB"
+
+#: kotti_contactform/views.py:83
+msgid "Full Name"
+msgstr "Nom Complet"
+
+#: kotti_contactform/views.py:85
+msgid "E-Mail Address"
+msgstr "Adresse E-Mail"
+
+#: kotti_contactform/views.py:86
+msgid "Subject"
+msgstr "Sujet"
+
+#: kotti_contactform/views.py:90
+msgid "Your message"
+msgstr "Votre message"
+
+#: kotti_contactform/views.py:94
+msgid "Attachment"
+msgstr "Pièce jointe"
+
+#: kotti_contactform/views.py:106
+msgid "Submit"
+msgstr "Envoi"
+
+#: kotti_contactform/templates/contactform-view.pt:28
+msgid "Thanks for your submission!"
+msgstr "Merci pour votre envoi!"
