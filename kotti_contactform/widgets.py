@@ -24,6 +24,7 @@ class RecaptchaWidget(CheckedInputWidget):
         template = readonly and self.readonly_template or self.template
         return field.renderer(template, field=field, cstruct=cstruct,
                               public_key=get_setting('public_key'),
+                              theme=get_setting('recaptcha_theme')
                               )
 
     def deserialize(self, field, pstruct):

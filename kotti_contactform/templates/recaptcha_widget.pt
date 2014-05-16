@@ -1,8 +1,7 @@
 <script type="text/javascript">
   var RecaptchaOptions = {
-    theme : 'blackglass',
+    theme : '${theme}',
   };
-  console.log(RecaptchaOptions);
 </script>
  <input type="hidden" name="__start__" value="${field.name}:mapping"/>
     <script type="text/javascript"
