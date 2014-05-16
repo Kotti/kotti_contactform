@@ -18,8 +18,11 @@ from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Attachment
 from pyramid_mailer.message import Message
 
+from kotti_settings.util import get_setting
+
 from kotti_contactform import _
 from kotti_contactform.resources import ContactForm
+from kotti_contactform.widgets import deferred_recaptcha_widget
 
 
 class ContactFormSchema(ContentSchema):
@@ -64,7 +67,7 @@ def mail_submission(context, request, appstruct):
                       + appstruct['sender'] + '>',
                       extra_headers={'X-Mailer': "kotti_contactform"},
                       recipients=[context.recipient],
-                      body=appstruct['content'])
+                          body=appstruct['content'])
     if 'attachment' in appstruct and appstruct['attachment'] is not None:
         message.attach(Attachment(
             filename=appstruct['attachment']['filename'],
@@ -97,9 +100,11 @@ def view_contactform(context, request):
             msg = _('Maximum file size: ${size}MB', mapping={'size': max_size})
             raise colander.Invalid(node, msg)
 
-    def maybe_show_attachment(node, kw):
-        if kw.get('maybe_show_attachment', True) is False:
+    def maybe_show(node, kw):
+        if kw.get('show_attachment', True) is False:
             del node['attachment']
+        if kw.get('show_captcha', True) is False:
+            del node['captcha']
 
     class SubmissionSchema(colander.MappingSchema):
 
@@ -121,13 +126,20 @@ def view_contactform(context, request):
             validator=file_size_limit,
             missing=None,
         )
+        captcha = colander.SchemaNode(
+            colander.String(),
+            title=_('Captcha'),
+            widget=deferred_recaptcha_widget
+        )
         _LOCALE_ = colander.SchemaNode(
             colander.String(),
             widget=HiddenWidget(),
             default=locale_name)
 
-    schema = SubmissionSchema(after_bind=maybe_show_attachment)
-    schema = schema.bind(maybe_show_attachment=context.show_attachment)
+    schema = SubmissionSchema(after_bind=maybe_show)
+    schema = schema.bind(show_attachment=context.show_attachment,
+                         show_captcha=get_setting('show_captcha'),
+                         request=request)
     form = Form(schema, buttons=[Button('submit', _('Submit'))])
     appstruct = None
     rendered_form = None
@@ -144,5 +156,6 @@ def view_contactform(context, request):
     return {
         'form': rendered_form,
         'appstruct': appstruct,
+        'use_captcha': get_setting('use_captcha'),
         'api': template_api(context, request),
     }
