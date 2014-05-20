@@ -6,7 +6,7 @@ README = open(os.path.join(here, 'README.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 install_requires = [
-    'Kotti >= 0.9.2',
+    'Kotti == 0.9.2',
     'kotti_settings',
     'Babel',
     'Pillow',
