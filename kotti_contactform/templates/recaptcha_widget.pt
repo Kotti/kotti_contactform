@@ -1,21 +1,28 @@
-<script type="text/javascript">
-  var RecaptchaOptions = {
-    theme : '${theme}',
-  };
-</script>
- <input type="hidden" name="__start__" value="${field.name}:mapping"/>
-    <script type="text/javascript"
-       src="http://www.google.com/recaptcha/api/challenge?k=${public_key}">
-    </script>
-    <noscript>
-      <iframe src="http://www.google.com/recaptcha/api/noscript?k=${public_key}"
-          height="300" width="400" frameborder="0"></iframe><br />
-      <input type="text"
-         name="recaptcha_challenge_field"
-         id="${field.oid}"/>
-
-      <input type="hidden"
-         name="recaptcha_response_field"
-         id="${field.oid}-recaptcha_response_field"/>
-    </noscript>
-<input type="hidden" name="__end__" value="${field.name}:mapping"/>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="kotti_contactform">
+  <script type="text/javascript">
+    var RecaptchaOptions = {
+      theme: '${theme}'
+    };
+  </script>
+  <script type="text/javascript"
+          src="http://www.google.com/recaptcha/api/challenge?k=${public_key}">
+  </script>
+  <input type="hidden" name="__start__" value="${field.name}:mapping" />
+  <noscript>
+    <iframe src="http://www.google.com/recaptcha/api/noscript?k=${public_key}"
+            height="300" width="400" frameborder="0"></iframe>
+    <br />
+    <input type="text"
+           name="recaptcha_challenge_field"
+           id="${field.oid}"/>
+    <input type="hidden"
+           name="recaptcha_response_field"
+           id="${field.oid}-recaptcha_response_field"/>
+  </noscript>
+  <input type="hidden" name="__end__" value="${field.name}:mapping" />
+</html>
