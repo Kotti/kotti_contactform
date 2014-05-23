@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.4dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-20 21:33+0200\n"
+"POT-Creation-Date: 2014-05-23 16:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,43 +34,43 @@ msgstr ""
 msgid "Your public key."
 msgstr ""
 
-#: kotti_contactform/populate.py:25
+#: kotti_contactform/populate.py:26
 msgid "Private key"
 msgstr ""
 
-#: kotti_contactform/populate.py:26
+#: kotti_contactform/populate.py:27
 msgid "Your private key."
 msgstr ""
 
-#: kotti_contactform/populate.py:30
+#: kotti_contactform/populate.py:32
 msgid "Red"
 msgstr ""
 
-#: kotti_contactform/populate.py:31
+#: kotti_contactform/populate.py:33
 msgid "White"
 msgstr ""
 
-#: kotti_contactform/populate.py:32
+#: kotti_contactform/populate.py:34
 msgid "Blackglass"
 msgstr ""
 
-#: kotti_contactform/populate.py:33
+#: kotti_contactform/populate.py:35
 msgid "Clean"
 msgstr ""
 
-#: kotti_contactform/populate.py:38
+#: kotti_contactform/populate.py:40
 msgid "reCaptcha theme"
 msgstr ""
 
-#: kotti_contactform/populate.py:52
+#: kotti_contactform/populate.py:54
 msgid "Contact form settings"
 msgstr ""
 
-#: kotti_contactform/populate.py:53
+#: kotti_contactform/populate.py:55
 msgid "Settings for kotti_contactform"
 msgstr ""
 
-#: kotti_contactform/populate.py:54
+#: kotti_contactform/populate.py:56
 msgid "Successfully saved kotti_contactform settings."
 msgstr ""
 
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: kotti_contactform/widgets.py:66
+#: kotti_contactform/widgets.py:68
 msgid "Incorrect solution"
 msgstr ""
 
