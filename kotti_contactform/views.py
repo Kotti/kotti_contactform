@@ -103,7 +103,7 @@ def view_contactform(context, request):
     def maybe_show(node, kw):
         if kw.get('show_attachment', True) is False:
             del node['attachment']
-        if kw.get('show_captcha', True) is False:
+        if kw.get('show_captcha', False) is False:
             del node['captcha']
 
     class SubmissionSchema(colander.MappingSchema):
@@ -138,7 +138,7 @@ def view_contactform(context, request):
 
     schema = SubmissionSchema(after_bind=maybe_show)
     schema = schema.bind(show_attachment=context.show_attachment,
-                         show_captcha=get_setting('show_captcha'),
+                         show_captcha=get_setting('show_captcha', False),
                          request=request)
     form = Form(schema, buttons=[Button('submit', _('Submit'))])
     appstruct = None
