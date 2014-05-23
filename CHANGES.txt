@@ -4,6 +4,8 @@ History
 0.4 - Unreleased
 ----------------
 
+- Integrate optional captcha service for the contact form.
+
 
 0.3 - 2013-11-01
 ----------------
