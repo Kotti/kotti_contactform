@@ -17,6 +17,7 @@ class PublicKeySchemaNode(colander.SchemaNode):
     name = 'public_key'
     title = _(u'Public key')
     description = _(u'Your public key.')
+    missing = u''
     default = u''
 
 
@@ -24,6 +25,7 @@ class PrivateKeySchemaNode(colander.SchemaNode):
     name = 'private_key'
     title = _(u'Private key')
     description = _(u'Your private key.')
+    missing = u''
     default = u''
 
 
