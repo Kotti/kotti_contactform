@@ -8,6 +8,8 @@ from colander import Invalid
 
 from deform.widget import CheckedInputWidget
 
+from kotti_contactform import _
+
 
 class RecaptchaWidget(CheckedInputWidget):
     template = 'recaptcha_widget'
