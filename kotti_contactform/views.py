@@ -24,8 +24,20 @@ from kotti_contactform.resources import ContactForm
 from kotti_contactform.widgets import deferred_recaptcha_widget
 
 
+@colander.deferred
+def deferred_default_sender(node, kw):
+    sender = kw.get('sender')
+    if not sender:
+        sender = get_setting('default_sender_address')
+    return sender
+
+
 class ContactFormSchema(ContentSchema):
 
+    sender = colander.SchemaNode(
+        colander.String(),
+        missing=deferred_default_sender,
+        default=deferred_default_sender)
     recipient = colander.SchemaNode(colander.String())
     body = colander.SchemaNode(
         colander.String(),
@@ -59,14 +71,18 @@ class ContactformEditForm(EditFormView):
 
 
 def mail_submission(context, request, appstruct):
-
     mailer = get_mailer(request)
-    message = Message(subject=appstruct['subject'],
-                      sender=appstruct['name'] + ' <'
-                      + appstruct['sender'] + '>',
-                      extra_headers={'X-Mailer': "kotti_contactform"},
-                      recipients=[context.recipient],
-                      body=appstruct['content'])
+    message = Message(
+        subject=appstruct['subject'],
+        sender='{name} <{email}>'.format(
+            name=appstruct['name'],
+            email=context.sender),
+        extra_headers={
+            'X-Mailer': "kotti_contactform",
+            'Reply-To': '{name} <{sender}>'.format(**appstruct),
+        },
+        recipients=[context.recipient],
+        body=appstruct['content'])
     if 'attachment' in appstruct and appstruct['attachment'] is not None:
         message.attach(Attachment(
             filename=appstruct['attachment']['filename'],

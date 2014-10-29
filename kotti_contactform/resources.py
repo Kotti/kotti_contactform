@@ -19,6 +19,7 @@ class ContactForm(Content):
     implements(IDefaultWorkflow)
 
     id = Column('id', Integer, ForeignKey('contents.id'), primary_key=True)
+    sender = Column(String(255), nullable=False)
     recipient = Column(String(255), nullable=False)
     body = Column(Text)
     show_attachment = Column(Boolean(), nullable=False)
@@ -33,10 +34,11 @@ class ContactForm(Content):
         ],
     )
 
-    def __init__(self, recipient=u"", body=u"",
+    def __init__(self, sender=u"", recipient=u"", body=u"",
                  show_attachment=True, **kwargs):
 
         super(ContactForm, self).__init__(**kwargs)
+        self.sender = sender
         self.recipient = recipient
         self.body = body
         self.show_attachment = show_attachment
