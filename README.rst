@@ -39,7 +39,7 @@ stamp_head --scripts=kotti_contactform:alembic``.
 Database upgrade
 ================
 
-If you upgrade from version 0.1.0 to 0.1.1 you have to migrate your
+If you upgrade to version 0.1.1 or 0.4 you have to migrate your
 database. The migration is performed with `alembic`_ and Kotti's
 console script ``kotti-migrate``. To migrate, run ``kotti-migrate
 upgrade_all --scripts=kotti_contactform:alembic``.
@@ -51,12 +51,16 @@ please create a new issue in the `tracker`_.
 Settings
 ========
 
-Point your browser to http://your.domain/@@settings to get to the settingspage
-or use the submenupoint of 'Site Setup'. There you can enable to use a captcha
-in your contact forms. For the captcha the reCAPATCHA_ service is used. You have
-to sign up to get a key pair in order to use the service on your site. In the
-settings you have to save your public and your private key. Have a look to
-https://developers.google.com/recaptcha/ to sign up and get your keys.
+Point your browser to http://your.domain/@@settings to get to the settings page
+or use the submenupoint of 'Site Setup'.
+
+You can specify a default sender address that will be used as the default for newly created contact forms.
+
+You can also enable the use of a captcha in your contact forms.
+For the captcha the reCAPATCHA_ service is used.
+You have to sign up to get a key pair in order to use the service on your site.
+In the settings you have to save your public and your private key.
+Have a look at https://developers.google.com/recaptcha/ to sign up and get your keys.
 
 
 .. _alembic: http://pypi.python.org/pypi/alembic
