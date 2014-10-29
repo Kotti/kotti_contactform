@@ -1,7 +1,7 @@
 import colander
 import deform
-
 from kotti_settings.util import add_settings
+
 from kotti_contactform import _
 
 

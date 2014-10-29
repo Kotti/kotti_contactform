@@ -12,13 +12,12 @@ from kotti.views.form import AddFormView
 from kotti.views.form import EditFormView
 from kotti.views.form import FileUploadTempStore
 from kotti.views.util import template_api
+from kotti_settings.util import get_setting
 from pyramid.i18n import get_locale_name
 from pyramid.view import view_config
 from pyramid_mailer import get_mailer
 from pyramid_mailer.message import Attachment
 from pyramid_mailer.message import Message
-
-from kotti_settings.util import get_setting
 
 from kotti_contactform import _
 from kotti_contactform.resources import ContactForm
@@ -67,7 +66,7 @@ def mail_submission(context, request, appstruct):
                       + appstruct['sender'] + '>',
                       extra_headers={'X-Mailer': "kotti_contactform"},
                       recipients=[context.recipient],
-                          body=appstruct['content'])
+                      body=appstruct['content'])
     if 'attachment' in appstruct and appstruct['attachment'] is not None:
         message.attach(Attachment(
             filename=appstruct['attachment']['filename'],
@@ -80,11 +79,11 @@ def mail_submission(context, request, appstruct):
 @view_config(name='view',
              context=ContactForm,
              permission='view',
-             renderer='kotti_contactform:templates/contactform-view-two-columns.pt')
+             renderer='kotti_contactform:templates/contactform-view-two-columns.pt')  # noqa
 @view_config(name='view-1-col',
              context=ContactForm,
              permission='view',
-             renderer='kotti_contactform:templates/contactform-view-one-column.pt')
+             renderer='kotti_contactform:templates/contactform-view-one-column.pt')  # noqa
 def view_contactform(context, request):
 
     locale_name = get_locale_name(request)
