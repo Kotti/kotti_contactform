@@ -7,6 +7,7 @@ from deform.widget import FileUploadWidget
 from deform.widget import HiddenWidget
 from deform.widget import RichTextWidget
 from deform.widget import TextAreaWidget
+from kotti import get_settings
 from kotti.views.edit import ContentSchema
 from kotti.views.form import AddFormView
 from kotti.views.form import EditFormView
@@ -28,7 +29,9 @@ from kotti_contactform.widgets import deferred_recaptcha_widget
 def deferred_default_sender(node, kw):
     sender = kw.get('sender')
     if not sender:
-        sender = get_setting('default_sender_address')
+        sender = get_setting(
+            'default_sender',
+            get_settings().get('mail.default_sender', ''))
     return sender
 
 

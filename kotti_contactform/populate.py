@@ -1,17 +1,26 @@
 import colander
 import deform
+from kotti import get_settings
 from kotti_settings.util import add_settings
 
 from kotti_contactform import _
 
 
+@colander.deferred
+def deferred_default_sender(node, kw):
+    sender = kw.get('default_sender')
+    if not sender:
+        sender = get_settings().get('mail.default_sender', '')
+    return sender
+
+
 class DefaultSenderAddressNode(colander.SchemaNode):
-    name = 'default_sender_address'
+    name = 'default_sender'
     title = _(u'Default sender address')
     description = _(u'Specify the default sender address for your contact '
                     'forms.')
-    missing = u''
-    default = u''
+    missing = deferred_default_sender
+    default = deferred_default_sender
 
 
 class ShowCaptchaSchemaNode(colander.SchemaNode):
@@ -52,7 +61,7 @@ class RecaptchaThemeSchemaNode(colander.SchemaNode):
 
 
 class ContactFormSchema(colander.MappingSchema):
-    default_sender_address = DefaultSenderAddressNode(colander.String())
+    default_sender = DefaultSenderAddressNode(colander.String())
     show_captcha = ShowCaptchaSchemaNode(colander.Boolean())
     public_key = PublicKeySchemaNode(colander.String())
     private_key = PrivateKeySchemaNode(colander.String())
