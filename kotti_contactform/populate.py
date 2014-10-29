@@ -5,6 +5,15 @@ from kotti_settings.util import add_settings
 from kotti_contactform import _
 
 
+class DefaultSenderAddressNode(colander.SchemaNode):
+    name = 'default_sender_address'
+    title = _(u'Default sender address')
+    description = _(u'Specify the default sender address for your contact '
+                    'forms.')
+    missing = u''
+    default = u''
+
+
 class ShowCaptchaSchemaNode(colander.SchemaNode):
     name = 'show_captcha'
     title = _(u'Show captcha')
@@ -43,6 +52,7 @@ class RecaptchaThemeSchemaNode(colander.SchemaNode):
 
 
 class ContactFormSchema(colander.MappingSchema):
+    default_sender_address = DefaultSenderAddressNode(colander.String())
     show_captcha = ShowCaptchaSchemaNode(colander.Boolean())
     public_key = PublicKeySchemaNode(colander.String())
     private_key = PrivateKeySchemaNode(colander.String())
