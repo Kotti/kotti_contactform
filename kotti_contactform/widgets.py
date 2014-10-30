@@ -16,13 +16,12 @@ class RecaptchaWidget(CheckedInputWidget):
     readonly_template = 'recaptcha_widget'
     requirements = ()
     url = "http://www.google.com/recaptcha/api/verify"
-    headers={'Content-type': 'application/x-www-form-urlencoded'}
+    headers = {'Content-type': 'application/x-www-form-urlencoded'}
 
     def serialize(self, field, cstruct, readonly=False):
         from kotti_settings.util import get_setting
         if cstruct in (null, None):
             cstruct = ''
-        confirm = getattr(field, 'confirm', '')
         template = readonly and self.readonly_template or self.template
         return field.renderer(template, field=field, cstruct=cstruct,
                               public_key=get_setting('public_key'),

@@ -1,6 +1,6 @@
+from deform import Form
 from pkg_resources import resource_filename
 from pyramid.i18n import TranslationStringFactory
-from deform import Form
 
 _ = TranslationStringFactory('kotti_contactform')
 

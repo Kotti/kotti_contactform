@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.4dev\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-05-23 16:52+0200\n"
+"POT-Creation-Date: 2014-10-29 12:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,111 +18,119 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: kotti_contactform/populate.py:10
+#: kotti_contactform/populate.py:19
+msgid "Default sender address"
+msgstr ""
+
+#: kotti_contactform/populate.py:20
+msgid "Specify the default sender address for your contact forms."
+msgstr ""
+
+#: kotti_contactform/populate.py:28
 msgid "Show captcha"
 msgstr ""
 
-#: kotti_contactform/populate.py:11
+#: kotti_contactform/populate.py:29
 msgid "Use a reCaptcha in your contact forms."
 msgstr ""
 
-#: kotti_contactform/populate.py:18
+#: kotti_contactform/populate.py:36
 msgid "Public key"
 msgstr ""
 
-#: kotti_contactform/populate.py:19
+#: kotti_contactform/populate.py:37
 msgid "Your public key."
 msgstr ""
 
-#: kotti_contactform/populate.py:26
+#: kotti_contactform/populate.py:44
 msgid "Private key"
 msgstr ""
 
-#: kotti_contactform/populate.py:27
+#: kotti_contactform/populate.py:45
 msgid "Your private key."
 msgstr ""
 
-#: kotti_contactform/populate.py:32
+#: kotti_contactform/populate.py:50
 msgid "Red"
 msgstr ""
 
-#: kotti_contactform/populate.py:33
+#: kotti_contactform/populate.py:51
 msgid "White"
 msgstr ""
 
-#: kotti_contactform/populate.py:34
+#: kotti_contactform/populate.py:52
 msgid "Blackglass"
 msgstr ""
 
-#: kotti_contactform/populate.py:35
+#: kotti_contactform/populate.py:53
 msgid "Clean"
 msgstr ""
 
-#: kotti_contactform/populate.py:40
+#: kotti_contactform/populate.py:58
 msgid "reCaptcha theme"
 msgstr ""
 
-#: kotti_contactform/populate.py:54
+#: kotti_contactform/populate.py:73
 msgid "Contact form settings"
 msgstr ""
 
-#: kotti_contactform/populate.py:55
+#: kotti_contactform/populate.py:74
 msgid "Settings for kotti_contactform"
 msgstr ""
 
-#: kotti_contactform/populate.py:56
+#: kotti_contactform/populate.py:75
 msgid "Successfully saved kotti_contactform settings."
 msgstr ""
 
-#: kotti_contactform/resources.py:28
+#: kotti_contactform/resources.py:29
 msgid "Contact form"
 msgstr ""
 
-#: kotti_contactform/views.py:38
+#: kotti_contactform/views.py:52
 msgid "Show attachment"
 msgstr ""
 
-#: kotti_contactform/views.py:39
+#: kotti_contactform/views.py:53
 msgid "If activated, the user can upload an attachment."
 msgstr ""
 
-#: kotti_contactform/views.py:51
+#: kotti_contactform/views.py:65
 msgid "Contact Form"
 msgstr ""
 
-#: kotti_contactform/views.py:100
+#: kotti_contactform/views.py:118
 msgid "Maximum file size: ${size}MB"
 msgstr ""
 
-#: kotti_contactform/views.py:112
+#: kotti_contactform/views.py:130
 msgid "Full Name"
 msgstr ""
 
-#: kotti_contactform/views.py:115
+#: kotti_contactform/views.py:133
 msgid "E-Mail Address"
 msgstr ""
 
-#: kotti_contactform/views.py:116
+#: kotti_contactform/views.py:134
 msgid "Subject"
 msgstr ""
 
-#: kotti_contactform/views.py:120
+#: kotti_contactform/views.py:138
 msgid "Your message"
 msgstr ""
 
-#: kotti_contactform/views.py:124
+#: kotti_contactform/views.py:142
 msgid "Attachment"
 msgstr ""
 
-#: kotti_contactform/views.py:131
+#: kotti_contactform/views.py:149
 msgid "Captcha"
 msgstr ""
 
-#: kotti_contactform/views.py:143
+#: kotti_contactform/views.py:161
 msgid "Submit"
 msgstr ""
 
-#: kotti_contactform/widgets.py:68
+#: kotti_contactform/widgets.py:67
 msgid "Incorrect solution"
 msgstr ""
 
