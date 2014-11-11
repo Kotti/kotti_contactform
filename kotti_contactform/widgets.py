@@ -5,8 +5,8 @@ from urllib import urlencode
 import colander
 from colander import null
 from colander import Invalid
-
 from deform.widget import CheckedInputWidget
+from kotti_settings.util import get_setting
 
 from kotti_contactform import _
 
@@ -19,7 +19,6 @@ class RecaptchaWidget(CheckedInputWidget):
     headers = {'Content-type': 'application/x-www-form-urlencoded'}
 
     def serialize(self, field, cstruct, readonly=False):
-        from kotti_settings.util import get_setting
         if cstruct in (null, None):
             cstruct = ''
         template = readonly and self.readonly_template or self.template
@@ -29,15 +28,18 @@ class RecaptchaWidget(CheckedInputWidget):
                               )
 
     def deserialize(self, field, pstruct):
-        from kotti_settings.util import get_setting
+
         if pstruct is null:
             return null
+
         challenge = pstruct.get('recaptcha_challenge_field') or ''
+        if not challenge:
+            raise Invalid(field.schema, 'Missing challenge')
+
         response = pstruct.get('recaptcha_response_field') or ''
         if not response:
             raise Invalid(field.schema, 'No input')
-        if not challenge:
-            raise Invalid(field.schema, 'Missing challenge')
+
         privatekey = get_setting('private_key')
         remoteip = self.request.remote_addr
         data = urlencode(dict(privatekey=privatekey,
@@ -46,9 +48,7 @@ class RecaptchaWidget(CheckedInputWidget):
                               response=response))
         h = httplib2.Http(timeout=10)
         try:
-            resp, content = h.request(self.url,
-                                      "POST",
-                                      headers=self.headers,
+            resp, content = h.request(self.url, "POST", headers=self.headers,
                                       body=data)
         except AttributeError as e:
             if e == "'NoneType' object has no attribute 'makefile'":
@@ -56,17 +56,21 @@ class RecaptchaWidget(CheckedInputWidget):
                 ## XXX: there is no connextion made to the socker so
                 ## XXX sock is still None when makefile is called.
                 raise Invalid(field.schema,
-                              "Could not connect to the captcha service.")
+                              _("Could not connect to the captcha service."))
+
         if not resp['status'] == '200':
             raise Invalid(field.schema,
                           "There was an error talking to the recaptcha \
                           server{0}".format(resp['status']))
+
         valid, reason = content.split('\n')
+
         if not valid == 'true':
             if reason == 'incorrect-captcha-sol':
                 reason = _(u"Incorrect solution")
             raise Invalid(field.schema, reason.replace('\\n', ' ').strip("'"))
-        return pstruct
+
+        return reason
 
 
 @colander.deferred
