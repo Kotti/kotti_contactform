@@ -57,7 +57,7 @@ or use the submenupoint of 'Site Setup'.
 You can specify a default sender address that will be used as the default for newly created contact forms.
 
 You can also enable the use of a captcha in your contact forms.
-For the captcha the reCAPATCHA_ service is used.
+For the captcha the `reCAPTCHA`_ service is used.
 You have to sign up to get a key pair in order to use the service on your site.
 In the settings you have to save your public and your private key.
 Have a look at https://developers.google.com/recaptcha/ to sign up and get your keys.

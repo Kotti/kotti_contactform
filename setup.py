@@ -4,7 +4,8 @@ from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
-CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
+CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
+AUTHORS = open(os.path.join(here, 'AUTHORS.rst')).read()
 
 install_requires = [
     'alembic',
@@ -20,7 +21,7 @@ install_requires = [
 setup(name='kotti_contactform',
       version='0.5dev',
       description="Simple contact form for Kotti sites",
-      long_description=README + '\n\n' + CHANGES,
+      long_description=README + '\n\n' + AUTHORS + '\n\n' + CHANGES,
       keywords='kotti contact form',
       maintainer='Kotti developers',
       maintainer_email='kotti@googlegroups.com',

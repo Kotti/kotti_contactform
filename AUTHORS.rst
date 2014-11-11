@@ -7,4 +7,4 @@ Authors
 - Andreas Kaiser
 
 For a complete list of contributors, see
-https://github.com/chrneumann/kotti_contactform/graphs/contributors
+https://github.com/Kotti/kotti_contactform/graphs/contributors
