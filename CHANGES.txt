@@ -1,6 +1,11 @@
 History
 =======
 
+0.4.1 - 2014-11-11
+------------------
+
+- Fix the RecaptchaWidget serializer that hasn't been working at all before.
+
 0.4 - 2014-11-11
 ----------------
 
