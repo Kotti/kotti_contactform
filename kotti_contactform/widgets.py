@@ -61,9 +61,10 @@ class RecaptchaWidget(CheckedInputWidget):
                               _("Could not connect to the captcha service."))
 
         if not resp['status'] == '200':
-            raise Invalid(field.schema,
-                          "There was an error talking to the recaptcha \
-                          server{0}".format(resp['status']))
+            raise Invalid(
+                field.schema,
+                _("There was an error talking to the recaptcha server ({0})"
+                  ).format(resp['status']))
 
         valid, reason = content.split('\n')
 

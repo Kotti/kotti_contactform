@@ -7,18 +7,15 @@ README = open(os.path.join(here, 'README.rst')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 install_requires = [
-    'alembic',
-    'Babel',
     'colander >= 0.9.8',
     'httplib2',
-    'Kotti >= 0.9.2',
+    'Kotti >= 0.10b1',
     'kotti_settings',
-    'Pillow',
 ]
 
 
 setup(name='kotti_contactform',
-      version='0.4.1',
+      version='0.5',
       description="Simple contact form for Kotti sites",
       long_description=README + '\n\n' + CHANGES,
       keywords='kotti contact form',

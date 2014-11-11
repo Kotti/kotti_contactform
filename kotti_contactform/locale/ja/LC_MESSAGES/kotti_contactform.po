@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.1.1a2\n"
 "Report-Msgid-Bugs-To: christian@datenkarussell.de\n"
-"POT-Creation-Date: 2014-10-29 12:34+0100\n"
+"POT-Creation-Date: 2014-11-11 17:12+0100\n"
 "PO-Revision-Date: 2012-06-29 13:53+0900\n"
 "Last-Translator: Tetsuya Morimoto <tetsuya.morimoto@gmail.com>\n"
 "Language-Team: ja <LL@li.org>\n"
@@ -72,7 +72,6 @@ msgstr ""
 
 #: kotti_contactform/populate.py:73
 #, fuzzy
-#| msgid "Contact form"
 msgid "Contact form settings"
 msgstr "問い合わせフォーム"
 
@@ -98,7 +97,6 @@ msgstr "有効にすると、ユーザーは添付ファイルをアップロー
 
 #: kotti_contactform/views.py:65
 #, fuzzy
-#| msgid "Contact form"
 msgid "Contact Form"
 msgstr "問い合わせフォーム"
 
@@ -134,12 +132,19 @@ msgstr ""
 msgid "Submit"
 msgstr "送信"
 
-#: kotti_contactform/widgets.py:67
-msgid "Incorrect solution"
-msgstr ""
-
-#: kotti_contactform/templates/contactform-view-one-column.pt:18
-#: kotti_contactform/templates/contactform-view-two-columns.pt:22
+#: kotti_contactform/views.py:173
 msgid "Thanks for your submission!"
 msgstr "お問い合わせ頂き、ありがとうございます！"
+
+#: kotti_contactform/widgets.py:61
+msgid "Could not connect to the captcha service."
+msgstr ""
+
+#: kotti_contactform/widgets.py:66
+msgid "There was an error talking to the recaptcha server ({0})"
+msgstr ""
+
+#: kotti_contactform/widgets.py:73
+msgid "Incorrect solution"
+msgstr ""
 
