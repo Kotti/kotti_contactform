@@ -28,10 +28,11 @@ Add a ContactForm
   >>> browser.getLink("Add").click()
   >>> browser.getLink("Contact form").click()
   >>> ctrl("Title").value = "new contact form"
+  >>> ctrl("Sender").value = "test@localhost.local"
   >>> ctrl("Recipient").value = "test@localhost.local"
   >>> ctrl("Body").value = "The body text"
   >>> ctrl("save").click()
-  >>> "Successfully added item" in browser.contents
+  >>> "Item was added" in browser.contents
   True
   >>> browser.url == testing.BASE_URL + '/new-contact-form/'
   True
@@ -93,6 +94,7 @@ Add a ContactForm without attachement
   >>> browser.open(testing.BASE_URL)
   >>> browser.getLink("Contact form").click()
   >>> ctrl("Title").value = "contact form no attachment"
+  >>> ctrl("Sender").value = "test@localhost.local"
   >>> ctrl("Recipient").value = "test@localhost.local"
   >>> ctrl("Body").value = "The body text"
   >>> ctrl("Show attachment ").selected = False

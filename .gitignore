@@ -6,8 +6,10 @@ dist/
 eggs/
 include/
 lib/
+local/
 *.pyc
 *.pt.py
+.cache
 .coverage
 .installed.cfg
 coverage-*

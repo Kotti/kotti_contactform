@@ -1,18 +1,18 @@
-# German translations for kotti_contactform.
+# French translations for kotti_contactform.
 # Copyright (C) 2012 Christian Neumann
 # This file is distributed under the same license as the kotti_contactform
 # project.
-# Christian Neumann <christian@datenkarussell.de>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: kotti_contactform 0.1\n"
-"Report-Msgid-Bugs-To: christian@datenkarussell.de\n"
+"Project-Id-Version: kotti_contactform 0.1.1a1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-10-29 12:34+0100\n"
-"PO-Revision-Date: 2012-06-27 19:21+0200\n"
-"Last-Translator: Marco Scheidhuber <j23d@jusid.de>\n"
-"Language-Team: de <cneumann@datenkarussell.de>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"PO-Revision-Date: 2013-10-30 19:05+0100\n"
+"Last-Translator: Jonathan Schemoul <jonathan.schemoul@gmail.com>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,122 +20,126 @@ msgstr ""
 
 #: kotti_contactform/populate.py:19
 msgid "Default sender address"
-msgstr "Standard Absenderadresse"
+msgstr ""
 
 #: kotti_contactform/populate.py:20
 msgid "Specify the default sender address for your contact forms."
-msgstr "Bitte geben Sie die Standard Absenderadresse an, die in den Kontaktformularen benutzt werden soll."
+msgstr ""
 
 #: kotti_contactform/populate.py:28
 msgid "Show captcha"
-msgstr "Captcha anzeigen"
+msgstr ""
 
 #: kotti_contactform/populate.py:29
 msgid "Use a reCaptcha in your contact forms."
-msgstr "Das Kontakt-Formular mit einem reCaptcha Widget schützen."
+msgstr ""
 
 #: kotti_contactform/populate.py:36
 msgid "Public key"
-msgstr "Öffentlicher Schlüssel"
+msgstr ""
 
 #: kotti_contactform/populate.py:37
 msgid "Your public key."
-msgstr "Ihr öffentlicher Schlüssel."
+msgstr ""
 
 #: kotti_contactform/populate.py:44
 msgid "Private key"
-msgstr "Privater Schlüssel"
+msgstr ""
 
 #: kotti_contactform/populate.py:45
 msgid "Your private key."
-msgstr "Ihr privater Schlüssel."
+msgstr ""
 
 #: kotti_contactform/populate.py:50
 msgid "Red"
-msgstr "Red"
+msgstr ""
 
 #: kotti_contactform/populate.py:51
 msgid "White"
-msgstr "White"
+msgstr ""
 
 #: kotti_contactform/populate.py:52
 msgid "Blackglass"
-msgstr "Blackglass"
+msgstr ""
 
 #: kotti_contactform/populate.py:53
 msgid "Clean"
-msgstr "Clean"
+msgstr ""
 
 #: kotti_contactform/populate.py:58
 msgid "reCaptcha theme"
-msgstr "Theme für reCaptcha widget"
+msgstr ""
 
 #: kotti_contactform/populate.py:73
+#, fuzzy
+#| msgid "Contact form"
 msgid "Contact form settings"
-msgstr "Kontakt-Formular Einstellungen"
+msgstr "Formulaire de Contact"
 
 #: kotti_contactform/populate.py:74
 msgid "Settings for kotti_contactform"
-msgstr "Einstellungen für kotti_contactform"
+msgstr ""
 
 #: kotti_contactform/populate.py:75
 msgid "Successfully saved kotti_contactform settings."
-msgstr "Einstellungen für kotti_contactform erfolgreich gespeichert"
+msgstr ""
 
 #: kotti_contactform/resources.py:29
 msgid "Contact form"
-msgstr "Kontakt-Formular"
+msgstr "Formulaire de Contact"
 
 #: kotti_contactform/views.py:52
 msgid "Show attachment"
-msgstr "Anhang anzeigen"
+msgstr "Afficher la pièce jointe"
 
 #: kotti_contactform/views.py:53
 msgid "If activated, the user can upload an attachment."
-msgstr "Wenn aktiviert, kann der Nutzer einen Anhang anfügen."
+msgstr "Si activé, l'utilisateur peut joindre un fichier."
 
 #: kotti_contactform/views.py:65
+#, fuzzy
+#| msgid "Contact form"
 msgid "Contact Form"
-msgstr "Kontakt-Formular"
+msgstr "Formulaire de Contact"
 
 #: kotti_contactform/views.py:118
 msgid "Maximum file size: ${size}MB"
-msgstr "Maximale Dateigröße: ${size}MB"
+msgstr "Taille de fichier maximm : ${size}MB"
 
 #: kotti_contactform/views.py:130
 msgid "Full Name"
-msgstr "Name"
+msgstr "Nom Complet"
 
 #: kotti_contactform/views.py:133
 msgid "E-Mail Address"
-msgstr "E-Mail-Adresse"
+msgstr "Adresse E-Mail"
 
 #: kotti_contactform/views.py:134
 msgid "Subject"
-msgstr "Betreff"
+msgstr "Sujet"
 
 #: kotti_contactform/views.py:138
 msgid "Your message"
-msgstr "Ihre Mitteilung"
+msgstr "Votre message"
 
 #: kotti_contactform/views.py:142
 msgid "Attachment"
-msgstr "Anhang"
+msgstr "Pièce jointe"
 
 #: kotti_contactform/views.py:149
 msgid "Captcha"
-msgstr "Captcha"
+msgstr ""
 
 #: kotti_contactform/views.py:161
 msgid "Submit"
-msgstr "Senden"
+msgstr "Envoi"
 
 #: kotti_contactform/widgets.py:67
 msgid "Incorrect solution"
-msgstr "Ihre Lösung ist falsch"
+msgstr ""
 
 #: kotti_contactform/templates/contactform-view-one-column.pt:18
 #: kotti_contactform/templates/contactform-view-two-columns.pt:22
 msgid "Thanks for your submission!"
-msgstr "Vielen Dank für Ihre Mitteilung!"
+msgstr "Merci pour votre envoi!"
 

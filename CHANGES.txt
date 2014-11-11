@@ -1,7 +1,21 @@
 History
 =======
 
-0.2 - Unreleased
+0.4 - 2014-11-11
+----------------
+
+- Integrate optional captcha service for the contact form.
+- Require Kotti>=0.9.2
+- Add an additional sender column.
+  Using the user supplied email address as the mail sender fails if the sender domain has an SPF record and the receiving mail server checks SPF records.
+  You need to run the migration script or add the column yourself (on SQLite).
+
+0.3 - 2013-11-01
+----------------
+
+- Added frech translation. [jon1012]
+
+0.2 - 2013-01-07
 ----------------
 
 - Implement IDefaultworkflow.
