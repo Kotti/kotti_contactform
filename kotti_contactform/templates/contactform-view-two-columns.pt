@@ -7,20 +7,15 @@
       metal:use-macro="api.macro('kotti:templates/view/master.pt')">
   <article metal:fill-slot="content" class="contactform-view content">
     <h1>${api.context.title}</h1>
-    <p class="description">
+    <p class="lead">
       ${api.context.description}
     </p>
-    <div class="row-fluid">
-      <div class="span5">
+    <div class="row">
+      <div class="col-md-6">
         ${structure: api.context.body}
       </div>
-      <div class="span7">
-        <div tal:condition="form">
-          ${structure: form}
-        </div>
-        <div tal:condition="appstruct">
-          <p class="alert alert-success" i18n:translate="">Thanks for your submission!</p>
-        </div>
+      <div class="col-md-6">
+        <div tal:condition="form" tal:content="structure form"></div>
       </div>
     </div>
   </article>
