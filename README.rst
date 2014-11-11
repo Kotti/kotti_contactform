@@ -62,9 +62,21 @@ You have to sign up to get a key pair in order to use the service on your site.
 In the settings you have to save your public and your private key.
 Have a look at https://developers.google.com/recaptcha/ to sign up and get your keys.
 
+Development
+===========
+
+Contributions to ``kotti_contactform`` are highly welcome.
+Just clone its `Github repository`_ and submit your contributions as pull requests.
+
+When developing ``kotti_contactform`` it can be useful to have a dummy SMTP server that doesn't actually send emails but prints them to the console.
+Fortunately this is *very* easy with Python::
+
+    sudo python -m smtpd -n -c DebuggingServer localhost:1025
+
 
 .. _alembic: http://pypi.python.org/pypi/alembic
 .. _alembic documentation: http://alembic.readthedocs.org/en/latest/index.html
-.. _tracker: https://github.com/chrneumann/kotti_contactform/issues
+.. _tracker: https://github.com/Kotti/kotti_contactform/issues
 .. _kotti_settings: http://pypi.python.org/pypi/kotti_settings
 .. _reCAPTCHA: https://developers.google.com/recaptcha/
+.. _Github repository: https://github.com/Kotti/kotti_contactform

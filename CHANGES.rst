@@ -4,7 +4,8 @@ History
 0.5 - unreleased
 ----------------
 
-- No changes yet.
+- Migrate to Bootstrap 3.
+  This requires ``Kotti>=0.10b1`` and is a **backward incompatible change if you have customized any template**!
 
 0.4.1 - 2014-11-11
 ------------------

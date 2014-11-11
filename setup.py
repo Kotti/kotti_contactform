@@ -8,13 +8,9 @@ CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
 AUTHORS = open(os.path.join(here, 'AUTHORS.rst')).read()
 
 install_requires = [
-    'alembic',
-    'Babel',
-    'colander >= 0.9.8',
     'httplib2',
-    'Kotti >= 0.9.2',
+    'Kotti >= 0.10b1',
     'kotti_settings',
-    'Pillow',
 ]
 
 

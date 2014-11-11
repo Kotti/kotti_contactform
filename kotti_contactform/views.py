@@ -165,10 +165,12 @@ def view_contactform(context, request):
         controls = request.POST.items()
         try:
             appstruct = form.validate(controls)
-            mail_submission(context, request, appstruct)
         except ValidationFailure, e:
             appstruct = None
             rendered_form = e.render()
+        else:
+            mail_submission(context, request, appstruct)
+            request.session.flash(_('Thanks for your submission!'), 'success')
     else:
         rendered_form = form.render()
     return {
