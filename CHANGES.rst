@@ -6,6 +6,11 @@ History
 
 - No changes yet.
 
+0.4.1 - 2014-11-11
+------------------
+
+- Fix the RecaptchaWidget serializer that hasn't been working at all before.
+
 0.4 - 2014-11-11
 ----------------
 
@@ -28,7 +33,6 @@ History
 - Use decorators for view config.
 - Add fanstatic filter to development.ini.
 
-
 0.1.1 - 2012-12-28
 ------------------
 
@@ -37,7 +41,6 @@ History
   with Kotti<=0.7.x then pin to 0.1.1a5.
 - Use form classes for the form views instead of deprecated generic functions.
 - Use pyramid.includes instead of deprecated kotti.includes.
-
 
 0.1.1a5 - 2012-08-21
 --------------------
