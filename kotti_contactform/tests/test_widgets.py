@@ -62,7 +62,6 @@ class TestRecaptchaWidget:
             assert widget.deserialize(field, pstruct) is null
 
     def test_deserialize_no_response(self):
-        from colander import null
         from colander import Invalid
         widget = self._makeOne()
         renderer = DummyRenderer()
@@ -76,7 +75,6 @@ class TestRecaptchaWidget:
                 widget.deserialize(field, pstruct)
 
     def test_deserialize_no_challenge(self):
-        from colander import null
         from colander import Invalid
         widget = self._makeOne()
         renderer = DummyRenderer()

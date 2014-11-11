@@ -51,7 +51,7 @@ class RecaptchaWidget(CheckedInputWidget):
                                       headers=self.headers,
                                       body=data)
         except AttributeError as e:
-            if e=="'NoneType' object has no attribute 'makefile'":
+            if e == "'NoneType' object has no attribute 'makefile'":
                 ## XXX: catch a possible httplib regression in 2.7 where
                 ## XXX: there is no connextion made to the socker so
                 ## XXX sock is still None when makefile is called.
@@ -65,7 +65,7 @@ class RecaptchaWidget(CheckedInputWidget):
         if not valid == 'true':
             if reason == 'incorrect-captcha-sol':
                 reason = _(u"Incorrect solution")
-            raise Invalid(field.schema, reason.replace('\\n', ' ').strip("'") )
+            raise Invalid(field.schema, reason.replace('\\n', ' ').strip("'"))
         return pstruct
 
 
