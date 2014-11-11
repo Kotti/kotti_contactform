@@ -1,7 +1,7 @@
 History
 =======
 
-0.5 - unreleased
+0.5 - 2014-11-11
 ----------------
 
 - Migrate to Bootstrap 3.
