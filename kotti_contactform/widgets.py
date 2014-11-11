@@ -6,7 +6,6 @@ import colander
 from colander import null
 from colander import Invalid
 from deform.widget import CheckedInputWidget
-from kotti_settings.util import get_setting
 
 from kotti_contactform import _
 
@@ -19,6 +18,7 @@ class RecaptchaWidget(CheckedInputWidget):
     headers = {'Content-type': 'application/x-www-form-urlencoded'}
 
     def serialize(self, field, cstruct, readonly=False):
+        from kotti_settings.util import get_setting
         if cstruct in (null, None):
             cstruct = ''
         template = readonly and self.readonly_template or self.template
@@ -28,6 +28,8 @@ class RecaptchaWidget(CheckedInputWidget):
                               )
 
     def deserialize(self, field, pstruct):
+
+        from kotti_settings.util import get_setting
 
         if pstruct is null:
             return null
