@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.1\n"
 "Report-Msgid-Bugs-To: christian@datenkarussell.de\n"
-"POT-Creation-Date: 2014-10-29 12:34+0100\n"
+"POT-Creation-Date: 2014-11-11 17:12+0100\n"
 "PO-Revision-Date: 2012-06-27 19:21+0200\n"
 "Last-Translator: Marco Scheidhuber <j23d@jusid.de>\n"
 "Language-Team: de <cneumann@datenkarussell.de>\n"
@@ -24,7 +24,9 @@ msgstr "Standard Absenderadresse"
 
 #: kotti_contactform/populate.py:20
 msgid "Specify the default sender address for your contact forms."
-msgstr "Bitte geben Sie die Standard Absenderadresse an, die in den Kontaktformularen benutzt werden soll."
+msgstr ""
+"Bitte geben Sie die Standard Absenderadresse an, die in den "
+"Kontaktformularen benutzt werden soll."
 
 #: kotti_contactform/populate.py:28
 msgid "Show captcha"
@@ -130,12 +132,19 @@ msgstr "Captcha"
 msgid "Submit"
 msgstr "Senden"
 
-#: kotti_contactform/widgets.py:67
-msgid "Incorrect solution"
-msgstr "Ihre Lösung ist falsch"
-
-#: kotti_contactform/templates/contactform-view-one-column.pt:18
-#: kotti_contactform/templates/contactform-view-two-columns.pt:22
+#: kotti_contactform/views.py:173
 msgid "Thanks for your submission!"
 msgstr "Vielen Dank für Ihre Mitteilung!"
+
+#: kotti_contactform/widgets.py:61
+msgid "Could not connect to the captcha service."
+msgstr "Keine Verbindung zum Captcha Dienst"
+
+#: kotti_contactform/widgets.py:66
+msgid "There was an error talking to the recaptcha server ({0})"
+msgstr "Während der Kommunikation mit dem Captcha Dienst ist ein Fehler augetreten ({0})."
+
+#: kotti_contactform/widgets.py:73
+msgid "Incorrect solution"
+msgstr "Ihre Lösung ist falsch"
 

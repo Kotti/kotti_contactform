@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kotti_contactform 0.1.1a1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2014-10-29 12:34+0100\n"
+"POT-Creation-Date: 2014-11-11 17:12+0100\n"
 "PO-Revision-Date: 2013-10-30 19:05+0100\n"
 "Last-Translator: Jonathan Schemoul <jonathan.schemoul@gmail.com>\n"
 "Language-Team: fr <LL@li.org>\n"
@@ -72,7 +72,6 @@ msgstr ""
 
 #: kotti_contactform/populate.py:73
 #, fuzzy
-#| msgid "Contact form"
 msgid "Contact form settings"
 msgstr "Formulaire de Contact"
 
@@ -98,7 +97,6 @@ msgstr "Si activé, l'utilisateur peut joindre un fichier."
 
 #: kotti_contactform/views.py:65
 #, fuzzy
-#| msgid "Contact form"
 msgid "Contact Form"
 msgstr "Formulaire de Contact"
 
@@ -134,12 +132,19 @@ msgstr ""
 msgid "Submit"
 msgstr "Envoi"
 
-#: kotti_contactform/widgets.py:67
-msgid "Incorrect solution"
-msgstr ""
-
-#: kotti_contactform/templates/contactform-view-one-column.pt:18
-#: kotti_contactform/templates/contactform-view-two-columns.pt:22
+#: kotti_contactform/views.py:173
 msgid "Thanks for your submission!"
 msgstr "Merci pour votre envoi!"
+
+#: kotti_contactform/widgets.py:61
+msgid "Could not connect to the captcha service."
+msgstr ""
+
+#: kotti_contactform/widgets.py:66
+msgid "There was an error talking to the recaptcha server ({0})"
+msgstr ""
+
+#: kotti_contactform/widgets.py:73
+msgid "Incorrect solution"
+msgstr ""
 
