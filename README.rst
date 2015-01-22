@@ -18,6 +18,8 @@ Setup
 
 To enable the extension in your Kotti site, activate the configurator:
 
+.. code-block:: ini
+
     kotti.configurators =
         kotti_settings.kotti_configure
         kotti_contactform.kotti_configure
