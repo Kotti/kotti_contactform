@@ -35,7 +35,7 @@ http://packages.python.org/pyramid_mailer/
 If you add kotti_contactform to an existing Kotti site (i.e. a Kotti
 installation with an already existing database), you have to
 initialize the database migration with Kotti's ``kotti-migrate``
-console skript: ``kotti-migrate
+console script: ``kotti-migrate
 stamp_head --scripts=kotti_contactform:alembic``.
 
 Database upgrade
