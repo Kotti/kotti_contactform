@@ -1,0 +1,149 @@
+# German translations for kotti_contactform.
+# Copyright (C) 2012 Christian Neumann
+# This file is distributed under the same license as the kotti_contactform
+# project.
+# Christian Neumann <christian@datenkarussell.de>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kotti_contactform 0.1\n"
+"Report-Msgid-Bugs-To: christian@datenkarussell.de\n"
+"POT-Creation-Date: 2014-11-11 17:12+0100\n"
+"PO-Revision-Date: 2015-04-03 15:49+0200\n"
+"Last-Translator: Marco Scheidhuber <j23d@jusid.de>\n"
+"Language-Team: de <cneumann@datenkarussell.de>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+"Language: ro\n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: kotti_contactform/populate.py:19
+msgid "Default sender address"
+msgstr "Adresa implicită de expediere"
+
+#: kotti_contactform/populate.py:20
+msgid "Specify the default sender address for your contact forms."
+msgstr "Specifică adresa implicită a expeditorului pentru formularele tale."
+
+#: kotti_contactform/populate.py:28
+msgid "Show captcha"
+msgstr "Arată captcha"
+
+#: kotti_contactform/populate.py:29
+msgid "Use a reCaptcha in your contact forms."
+msgstr "Folosește un reCaptcha in formularele tale."
+
+#: kotti_contactform/populate.py:36
+msgid "Public key"
+msgstr "Cheie publică"
+
+#: kotti_contactform/populate.py:37
+msgid "Your public key."
+msgstr "Cheia ta publică."
+
+#: kotti_contactform/populate.py:44
+msgid "Private key"
+msgstr "Cheie privată"
+
+#: kotti_contactform/populate.py:45
+msgid "Your private key."
+msgstr "Cheia ta privată."
+
+#: kotti_contactform/populate.py:50
+msgid "Red"
+msgstr "Roșu"
+
+#: kotti_contactform/populate.py:51
+msgid "White"
+msgstr "Alb"
+
+#: kotti_contactform/populate.py:52
+msgid "Blackglass"
+msgstr "Blackglass"
+
+#: kotti_contactform/populate.py:53
+msgid "Clean"
+msgstr "Curăță"
+
+#: kotti_contactform/populate.py:58
+msgid "reCaptcha theme"
+msgstr "Temă reCaptcha"
+
+#: kotti_contactform/populate.py:73
+msgid "Contact form settings"
+msgstr "Setări pentru formularul de contact"
+
+#: kotti_contactform/populate.py:74
+msgid "Settings for kotti_contactform"
+msgstr "Setări pentru kotti_contactform"
+
+#: kotti_contactform/populate.py:75
+msgid "Successfully saved kotti_contactform settings."
+msgstr "Setările kotti_contactform au fost salvate cu succes."
+
+#: kotti_contactform/resources.py:29
+msgid "Contact form"
+msgstr "Formular de contact"
+
+#: kotti_contactform/views.py:52
+msgid "Show attachment"
+msgstr "Arată fișier atașat"
+
+#: kotti_contactform/views.py:53
+msgid "If activated, the user can upload an attachment."
+msgstr "Dacă e activat, utilizatorul poate atașa fișier."
+
+#: kotti_contactform/views.py:65
+msgid "Contact Form"
+msgstr "Formular de contact"
+
+#: kotti_contactform/views.py:118
+msgid "Maximum file size: ${size}MB"
+msgstr "Dimensiune maximă a fișierului: ${size}MB"
+
+#: kotti_contactform/views.py:130
+msgid "Full Name"
+msgstr "Nume și prenume"
+
+#: kotti_contactform/views.py:133
+msgid "E-Mail Address"
+msgstr "Adresă de e-mail"
+
+#: kotti_contactform/views.py:134
+msgid "Subject"
+msgstr "Subiect"
+
+#: kotti_contactform/views.py:138
+msgid "Your message"
+msgstr "Mesajul tău"
+
+#: kotti_contactform/views.py:142
+msgid "Attachment"
+msgstr "Fișier atașat"
+
+#: kotti_contactform/views.py:149
+msgid "Captcha"
+msgstr "Captcha"
+
+#: kotti_contactform/views.py:161
+msgid "Submit"
+msgstr "Trimite"
+
+#: kotti_contactform/views.py:173
+msgid "Thanks for your submission!"
+msgstr "Mulțumim pentru mesaj!"
+
+#: kotti_contactform/widgets.py:61
+msgid "Could not connect to the captcha service."
+msgstr "Conexiune imposibilă la serviciul captcha."
+
+#: kotti_contactform/widgets.py:66
+msgid "There was an error talking to the recaptcha server ({0})"
+msgstr "A apărut o problemă la recaptcha server ({0})."
+
+#: kotti_contactform/widgets.py:73
+msgid "Incorrect solution"
+msgstr "Soluție incorectă"
