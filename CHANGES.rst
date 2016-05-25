@@ -1,8 +1,8 @@
 History
 =======
 
-0.6 - unreleased
-----------------
+0.5.1 - 2016-05-25
+------------------
 
 - Allows to override templates in other addon. [castaf]
 

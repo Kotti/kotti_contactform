@@ -15,7 +15,7 @@ install_requires = [
 
 
 setup(name='kotti_contactform',
-      version='0.6dev',
+      version='0.5.1',
       description="Simple contact form for Kotti sites",
       long_description=README + '\n\n' + AUTHORS + '\n\n' + CHANGES,
       keywords='kotti contact form',
