@@ -4,7 +4,7 @@ History
 0.6 - unreleased
 ----------------
 
-- No changes yet.
+- Allows to override templates in other addon. [castaf]
 
 0.5 - 2014-11-11
 ----------------
