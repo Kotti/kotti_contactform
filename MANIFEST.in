@@ -3,5 +3,6 @@ global-include *.txt *.rst *.ini
 recursive-include kotti_contactform/alembic *.mako README
 recursive-include kotti_contactform/locale *.mo *.po *.pot
 recursive-include kotti_contactform/templates *.pt
+prune include
 prune lib
 prune local
