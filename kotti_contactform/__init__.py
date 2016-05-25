@@ -33,3 +33,10 @@ def includeme(config):
     config.add_static_view('static-kotti_contactform',
                            'kotti_contactform:static')
     config.scan()
+
+    settings = config.get_settings()
+    if settings.get('kotti_contactform.asset_overrides') is not None:
+        for override in [a.strip()
+                         for a in settings['kotti_contactform.asset_overrides'].split()
+                         if a.strip()]:
+            config.override_asset(to_override='kotti_contactform', override_with=override)
