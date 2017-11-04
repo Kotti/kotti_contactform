@@ -4,6 +4,8 @@ History
 0.6 - Unreleased
 ----------------
 
+- Fix the unicode encode issue in mail submission.
+
 
 0.5.1 - 2016-05-25
 ------------------
