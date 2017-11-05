@@ -13,6 +13,9 @@ install_requires = [
     'kotti_settings',
 ]
 
+tests_require = [
+    'mechanize',
+]
 
 setup(name='kotti_contactform',
       version='0.6dev',
@@ -38,7 +41,10 @@ setup(name='kotti_contactform',
       include_package_data=True,
       zip_safe=False,
       install_requires=install_requires,
-      extras_require={},
+      tests_require=tests_require,
+      extras_require={
+          'testing': tests_require,
+      },
       message_extractors={"kotti_contactform": [
           ("**.py", "lingua_python", None),
           ("**.pt", "lingua_xml", None),
