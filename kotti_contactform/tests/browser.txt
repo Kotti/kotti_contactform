@@ -8,7 +8,6 @@ Setup and Login
   >>> from kotti import testing
   >>> tools = testing.setUpFunctional(
   ... **{'kotti.configurators': 'kotti_contactform.kotti_configure',
-  ...    'pyramid.includes': 'pyramid_mailer.testing',
   ...   })
   >>> browser = tools['Browser']()
   >>> ctrl = browser.getControl
@@ -101,4 +100,4 @@ Add a ContactForm without attachement
   >>> ctrl("save").click()
   >>> browser.url == testing.BASE_URL + '/contact-form-no-attachment/'
   True
-  >>> with pytest.raises(LookupError): ctrl("Attachment")
+  >>> with pytest.raises(NotImplementedError): ctrl("Attachment")
