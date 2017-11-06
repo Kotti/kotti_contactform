@@ -69,6 +69,17 @@ Submit ContactForm
   >>> ctrl("submit").click()
   >>> "Thanks for your submission" in browser.contents
   True
+  >>> browser.open(testing.BASE_URL + '/new-contact-form/')
+  >>> ctrl("Full Name").value = "Testér"
+  >>> ctrl("E-Mail Address").value = "foo@example.com"
+  >>> ctrl("Subject").value = "Fêu"
+  >>> ctrl("Your message").value = "test messätch"
+  >>> import cStringIO
+  >>> ctrl("Attachment").add_file(cStringIO.StringIO('test content'),
+  ...                             'text/plain', 'foo.txt')
+  >>> ctrl("submit").click()
+  >>> "Thanks for your submission" in browser.contents
+  True
 
 Submit ContactForm with too big attachment file
 -----------------------------------------------
